@@ -1,0 +1,423 @@
+
+PLAY [Get start timestamp] *****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [set_fact] ****************************************************************
+ok: [cloud]
+
+PLAY [fast initialize all the servers] *****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [34.205.37.75]
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/fastinitnode/tasks/apply.yml for 34.205.37.75, 52.3.221.185
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/fastinitnode/tasks/apply.yml for 3.208.94.71
+
+TASK [Figuring out the server architecture] ************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+
+TASK [Figuring out the server architecture] ************************************
+changed: [3.208.94.71]
+
+TASK [Figuring out the OS release] *********************************************
+changed: [34.205.37.75]
+
+TASK [Setup variables] *********************************************************
+ok: [34.205.37.75]
+
+TASK [Figuring out the OS release] *********************************************
+changed: [52.3.221.185]
+
+TASK [Figuring out the OS release] *********************************************
+changed: [3.208.94.71]
+
+TASK [Setup variables] *********************************************************
+ok: [52.3.221.185]
+
+TASK [Setup variables] *********************************************************
+ok: [3.208.94.71]
+
+TASK [Ensure gopath exists] ****************************************************
+changed: [34.205.37.75] => (item=/opt/go)
+changed: [52.3.221.185] => (item=/opt/go)
+
+TASK [Ensure gopath exists] ****************************************************
+changed: [3.208.94.71] => (item=/opt/go)
+
+TASK [Ensure gopath exists] ****************************************************
+changed: [34.205.37.75] => (item=/opt/gopath)
+changed: [52.3.221.185] => (item=/opt/gopath)
+
+TASK [Ensure gopath exists] ****************************************************
+changed: [3.208.94.71] => (item=/opt/gopath)
+
+TASK [Add Docker's official GPG key] *******************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+
+TASK [Add Docker's official GPG key] *******************************************
+changed: [3.208.94.71]
+
+TASK [Add docker-ce repository] ************************************************
+changed: [52.3.221.185]
+
+TASK [Add docker-ce repository] ************************************************
+changed: [3.208.94.71]
+
+TASK [Add docker-ce repository] ************************************************
+changed: [34.205.37.75]
+
+TASK [Install docker, pip and other tools via apt] *****************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+
+TASK [Install docker, pip and other tools via apt] *****************************
+changed: [3.208.94.71]
+
+TASK [Install python packages] *************************************************
+changed: [52.3.221.185] => (item={u'args': u'--upgrade', u'name': u'pip'})
+changed: [34.205.37.75] => (item={u'args': u'--upgrade', u'name': u'pip'})
+
+TASK [Install python packages] *************************************************
+changed: [3.208.94.71] => (item={u'args': u'--upgrade', u'name': u'pip'})
+
+TASK [Install python packages] *************************************************
+changed: [52.3.221.185] => (item={u'name': u'nose'})
+changed: [34.205.37.75] => (item={u'name': u'nose'})
+
+TASK [Install python packages] *************************************************
+changed: [3.208.94.71] => (item={u'name': u'nose'})
+
+TASK [Install python packages] *************************************************
+changed: [52.3.221.185] => (item={u'name': u'docker-compose'})
+changed: [34.205.37.75] => (item={u'name': u'docker-compose'})
+
+TASK [Install python packages] *************************************************
+changed: [3.208.94.71] => (item={u'name': u'docker-compose'})
+
+TASK [Install python packages] *************************************************
+changed: [52.3.221.185] => (item={u'name': u'protobuf'})
+changed: [34.205.37.75] => (item={u'name': u'protobuf'})
+
+TASK [Install python packages] *************************************************
+changed: [3.208.94.71] => (item={u'name': u'protobuf'})
+
+TASK [Install python packages] *************************************************
+changed: [52.3.221.185] => (item={u'name': u'couchdb==1.0'})
+changed: [34.205.37.75] => (item={u'name': u'couchdb==1.0'})
+
+TASK [Install python packages] *************************************************
+changed: [3.208.94.71] => (item={u'name': u'couchdb==1.0'})
+
+TASK [Grant the user docker permission] ****************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+
+TASK [Grant the user docker permission] ****************************************
+changed: [3.208.94.71]
+
+TASK [Place the certificate in the right place] ********************************
+changed: [52.3.221.185] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+changed: [34.205.37.75] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+
+TASK [Place the certificate in the right place] ********************************
+changed: [3.208.94.71] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+
+TASK [Place the certificate in the right place] ********************************
+changed: [52.3.221.185] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+changed: [34.205.37.75] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+
+TASK [Place the certificate in the right place] ********************************
+changed: [3.208.94.71] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+
+PLAY [Setting up etcd services] ************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [3.208.94.71]
+ok: [52.3.221.185]
+ok: [34.205.37.75]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/etcdsetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Setup variables] *********************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Create etcd cluster parameter] *******************************************
+ok: [52.3.221.185] => (item=52.3.221.185)
+ok: [3.208.94.71] => (item=52.3.221.185)
+ok: [52.3.221.185] => (item=3.208.94.71)
+ok: [34.205.37.75] => (item=52.3.221.185)
+ok: [3.208.94.71] => (item=3.208.94.71)
+ok: [52.3.221.185] => (item=34.205.37.75)
+ok: [34.205.37.75] => (item=3.208.94.71)
+ok: [3.208.94.71] => (item=34.205.37.75)
+ok: [34.205.37.75] => (item=34.205.37.75)
+
+TASK [Fix the spacing issues] **************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Ensure etcd service directory exists] ************************************
+changed: [52.3.221.185] => (item=/opt/fabric/bin/etcddata)
+changed: [34.205.37.75] => (item=/opt/fabric/bin/etcddata)
+changed: [3.208.94.71] => (item=/opt/fabric/bin/etcddata)
+
+TASK [Unpack etcd binaries] ****************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Config services] *********************************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Reload services] *********************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Enable and start etcd services] ******************************************
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+changed: [52.3.221.185]
+
+PLAY [setup flanned on all nodes] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [34.205.37.75]
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/networksetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Setup variables] *********************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Ensure flanneld directory exists] ****************************************
+ok: [52.3.221.185] => (item=/opt/fabric/bin)
+ok: [34.205.37.75] => (item=/opt/fabric/bin)
+ok: [3.208.94.71] => (item=/opt/fabric/bin)
+
+TASK [Get etcd ip address] *****************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Reset etcd] **************************************************************
+skipping: [3.208.94.71] => (item=coreos.com) 
+skipping: [34.205.37.75] => (item=coreos.com) 
+ok: [52.3.221.185] => (item=coreos.com)
+
+TASK [Initialize the flanneld configuration in etcd] ***************************
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+ok: [52.3.221.185]
+
+TASK [Create etcd cluster endpoint parameter] **********************************
+ok: [52.3.221.185] => (item=52.3.221.185)
+ok: [52.3.221.185] => (item=3.208.94.71)
+ok: [3.208.94.71] => (item=52.3.221.185)
+ok: [52.3.221.185] => (item=34.205.37.75)
+ok: [3.208.94.71] => (item=3.208.94.71)
+ok: [34.205.37.75] => (item=52.3.221.185)
+ok: [3.208.94.71] => (item=34.205.37.75)
+ok: [34.205.37.75] => (item=3.208.94.71)
+ok: [34.205.37.75] => (item=34.205.37.75)
+
+TASK [Make the endpoint the right format] **************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Download flannel package] ************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Unpack flannel binaries] *************************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Configure flanneld services] *********************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Change IP Forwarding] ****************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Reload services] *********************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Start the flanneld service] **********************************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+PLAY [setup dns attribute for docker service] **********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [52.3.221.185]
+ok: [34.205.37.75]
+ok: [3.208.94.71]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/dnsdocker/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Setup variables] *********************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Wait for the flannel to setup the subnets] *******************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Get the bip address] *****************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Get the mtu] *************************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Adding dns entry to the docker service] **********************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Reload daemon service] ***************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Restart the docker services] *********************************************
+changed: [3.208.94.71] => (item=docker.socket)
+changed: [52.3.221.185] => (item=docker.socket)
+changed: [34.205.37.75] => (item=docker.socket)
+changed: [3.208.94.71] => (item=docker)
+changed: [34.205.37.75] => (item=docker)
+changed: [52.3.221.185] => (item=docker)
+
+PLAY [setup dns services and registrator] **************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [52.3.221.185]
+ok: [34.205.37.75]
+ok: [3.208.94.71]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/dnssetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Setup variables] *********************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Get etcd ip address] *****************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Reset etcd] **************************************************************
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+ok: [52.3.221.185]
+
+TASK [Initialize skydns configuration in etcd] *********************************
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+ok: [52.3.221.185]
+
+TASK [Create etcd cluster endpoint parameter] **********************************
+ok: [52.3.221.185] => (item=52.3.221.185)
+ok: [52.3.221.185] => (item=3.208.94.71)
+ok: [3.208.94.71] => (item=52.3.221.185)
+ok: [52.3.221.185] => (item=34.205.37.75)
+ok: [3.208.94.71] => (item=3.208.94.71)
+ok: [34.205.37.75] => (item=52.3.221.185)
+ok: [3.208.94.71] => (item=34.205.37.75)
+ok: [34.205.37.75] => (item=3.208.94.71)
+ok: [34.205.37.75] => (item=34.205.37.75)
+
+TASK [Make the endpoint the right format] **************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Check if there are existing skydns containers] ***************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Remove the existing skydns and registrator containers] *******************
+skipping: [52.3.221.185]
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+
+TASK [Get nameservers] *********************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Start skydns service] ****************************************************
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+changed: [52.3.221.185]
+
+TASK [Start registrator service] ***********************************************
+changed: [3.208.94.71]
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+
+PLAY [Reset connections] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [34.205.37.75]
+ok: [3.208.94.71]
+ok: [52.3.221.185]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/resetconn/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Reset ssh connection to make group change take effects] ******************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+PLAY [inform the installer] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [debug] *******************************************************************
+ok: [cloud] => {
+    "msg": "The work load started at 12:34:17, ended at 12:39:30"
+}
+
+PLAY RECAP *********************************************************************
+3.208.94.71                : ok=56   changed=29   unreachable=0    failed=0   
+34.205.37.75               : ok=56   changed=29   unreachable=0    failed=0   
+52.3.221.185               : ok=61   changed=30   unreachable=0    failed=0   
+cloud                      : ok=4    changed=0    unreachable=0    failed=0   
+

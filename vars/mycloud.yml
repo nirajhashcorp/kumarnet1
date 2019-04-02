@@ -1,0 +1,47 @@
+auth:
+  auth_url: ''
+  username: '{{ password | default(lookup(''env'', ''AWS_ACCESS_KEY_ID'')) }}'
+  password: '{{ username | default(lookup(''env'', ''AWS_ACCESS_KEY_ID'')) }}'
+cluster:
+  region_name: us-east-1
+  availability_zone: ''
+  security_group: Fabric
+  subnet_id: ''
+  vpc_id: ''
+  target_os: ubuntu
+  image_name: ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-*
+  flavor_name: t2.medium
+  ssh_user: ubuntu
+  validate_certs: true
+  private_net_name: demonet
+  root_block_device_name: /dev/sda1
+  public_key_file: /home/ubuntu/.ssh/fd.pub
+  private_key_file: /home/ubuntu/.ssh/fd
+  ssh_key_name: fabric
+  node_ip: public_ip
+  assign_public_ip: true
+  container_network:
+    Network: 172.16.0.0/16
+    SubnetLen: 24
+    SubnetMin: 172.16.0.0
+    SubnetMax: 172.16.255.0
+    Backend:
+      Type: udp
+      Port: 8285
+  service_ip_range: 172.15.0.0/24
+  dns_service_ip: 172.15.0.4
+  node_ips: []
+  name_prefix: kumarnet
+  domain: fabricnet
+  stack_size: 3
+  etcdnodes:
+  - kumarnet001
+  - kumarnet002
+  - kumarnet003
+  builders:
+  - kumarnet001
+  flannel_repo: https://github.com/coreos/flannel/releases/download/v0.10.0/flannel-v0.10.0-linux-amd64.tar.gz
+  etcd_repo: https://github.com/coreos/etcd/releases/download/v3.3.2/etcd-v3.3.2-linux-amd64.tar.gz
+  k8s_repo: https://storage.googleapis.com/kubernetes-release/release/v1.9.1/bin/linux/amd64/
+  go_repo: https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz
+  volume_size: 8

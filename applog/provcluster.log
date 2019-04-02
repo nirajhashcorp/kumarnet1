@@ -1,0 +1,239 @@
+
+PLAY [Get start timestamp] *****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [set_fact] ****************************************************************
+ok: [cloud]
+
+PLAY [Prepare to run the workload] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/prepare/tasks/apply.yml for cloud
+
+TASK [Setup env specific variables] ********************************************
+ok: [cloud]
+
+TASK [Setup VPC filter if VPC ID defined] **************************************
+skipping: [cloud]
+
+TASK [Setup Subnet filter if Subnet ID defined] ********************************
+skipping: [cloud]
+
+TASK [Retrieve AWS specific image flavor] **************************************
+ok: [cloud]
+
+TASK [Set ubuntu_ami_id] *******************************************************
+ok: [cloud]
+
+TASK [Create a key-pair] *******************************************************
+changed: [cloud] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB9pyVXDK6bZ+wu21WwF0kku4Cu1RjnP0IudysFJKFIu0S5ZkNB4qvF0oR4yrqZHFQ8hA0gDboes+CSpskcc6F7jA6bjkTv8pkruNosNxiuowcMMuT1r/0/7EfaAU/H/R8FmZ3tzUpO20Xg4zef8gzXZCimHqn1VqPxU5pahTrCSAdTQaiyiOsDPRijSqVqL77jkVkGE/EBboGk4TlnG0lYogOM+FfrImfWVEVyWxEUJNq8aBp6JyHjW33Y18ebOJsirrgE8xMSOWOX2c0/VG3jQru8JXybCmdfXUDp8x/waOyosJXjvvVF172Zzi6KZFxFbGVhLEzrpHy3cCMV84t ubuntu@ip-172-31-23-99)
+
+TASK [Gather vpc facts] ********************************************************
+ok: [cloud]
+
+TASK [Create EC2 security group] ***********************************************
+changed: [cloud]
+
+TASK [ec2_group_facts] *********************************************************
+ok: [cloud]
+
+TASK [Gather subnet facts] *****************************************************
+ok: [cloud]
+
+TASK [Add provisioning host group] *********************************************
+changed: [cloud] => (item=None)
+changed: [cloud] => (item=None)
+changed: [cloud] => (item=None)
+changed: [cloud]
+
+PLAY [provision servers] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [kumarnet001]
+ok: [kumarnet002]
+ok: [kumarnet003]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet001
+
+TASK [Setup env specific variables] ********************************************
+ok: [kumarnet001]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet002
+
+TASK [Get the allocated IP address if there is any configured] *****************
+ok: [kumarnet001]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet003
+
+TASK [Setup env specific variables] ********************************************
+ok: [kumarnet002]
+
+TASK [Setup env specific variables] ********************************************
+ok: [kumarnet003]
+
+TASK [Get the allocated IP address if there is any configured] *****************
+ok: [kumarnet002]
+
+TASK [Get the allocated IP address if there is any configured] *****************
+ok: [kumarnet003]
+
+TASK [Launch new instance] *****************************************************
+changed: [kumarnet001]
+
+TASK [Launch new instance] *****************************************************
+changed: [kumarnet002]
+
+TASK [Setup variables for generate host groups] ********************************
+ok: [kumarnet001]
+
+TASK [Setup variables for generate host groups] ********************************
+ok: [kumarnet002]
+
+TASK [Use public ip address when private ip is empty] **************************
+skipping: [kumarnet001]
+
+TASK [Use public ip address when private ip is empty] **************************
+skipping: [kumarnet002]
+
+TASK [Use private ip address when public ip is empty] **************************
+skipping: [kumarnet001]
+
+TASK [Use private ip address when public ip is empty] **************************
+skipping: [kumarnet002]
+
+TASK [Launch new instance] *****************************************************
+changed: [kumarnet003]
+
+TASK [Setup variables for generate host groups] ********************************
+ok: [kumarnet003]
+
+TASK [Use public ip address when private ip is empty] **************************
+skipping: [kumarnet003]
+
+TASK [Use private ip address when public ip is empty] **************************
+skipping: [kumarnet003]
+
+PLAY [Post provision process] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/postprovision/tasks/apply.yml for cloud
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/postprovision/tasks/../../../cloud_os/postprovision/tasks/apply.yml for cloud
+
+TASK [Ensure we have a working directory to save runtime files] ****************
+changed: [cloud]
+
+TASK [Remove the runhost file] *************************************************
+ok: [cloud]
+
+TASK [Remove the fabric host file] *********************************************
+ok: [cloud]
+
+TASK [Setup runhosts file] *****************************************************
+changed: [cloud] => (item=cloud ansible_host=127.0.0.1 ansible_python_interpreter=python)
+
+TASK [Add the node to host group named allnodes] *******************************
+changed: [cloud] => (item=kumarnet001)
+changed: [cloud] => (item=kumarnet002)
+changed: [cloud] => (item=kumarnet003)
+
+TASK [Add the node to host group with specified IP] ****************************
+changed: [cloud] => (item=[u'kumarnet001', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+changed: [cloud] => (item=[u'kumarnet001', {u'member': [u'kumarnet001'], u'type': u'builders'}])
+changed: [cloud] => (item=[u'kumarnet002', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+skipping: [cloud] => (item=[u'kumarnet002', {u'member': [u'kumarnet001'], u'type': u'builders'}]) 
+changed: [cloud] => (item=[u'kumarnet003', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+skipping: [cloud] => (item=[u'kumarnet003', {u'member': [u'kumarnet001'], u'type': u'builders'}]) 
+
+TASK [Add all the hosts to the file] *******************************************
+changed: [cloud] => (item=kumarnet001)
+changed: [cloud] => (item=kumarnet002)
+changed: [cloud] => (item=kumarnet003)
+
+TASK [Setup groups in the inventory file] **************************************
+changed: [cloud] => (item=)
+changed: [cloud] => (item=[allnodes])
+changed: [cloud] => (item=52.3.221.185)
+changed: [cloud] => (item=3.208.94.71)
+changed: [cloud] => (item=34.205.37.75)
+changed: [cloud] => (item=)
+changed: [cloud] => (item=[etcdnodes])
+changed: [cloud] => (item=52.3.221.185)
+changed: [cloud] => (item=3.208.94.71)
+changed: [cloud] => (item=34.205.37.75)
+changed: [cloud] => (item=)
+changed: [cloud] => (item=[builders])
+changed: [cloud] => (item=52.3.221.185)
+
+TASK [Create the hosts file] ***************************************************
+changed: [cloud] => (item=kumarnet001)
+changed: [cloud] => (item=kumarnet002)
+changed: [cloud] => (item=kumarnet003)
+
+TASK [Wait until servers are up and runnning] **********************************
+ok: [cloud] => (item=52.3.221.185)
+ok: [cloud] => (item=3.208.94.71)
+ok: [cloud] => (item=34.205.37.75)
+
+PLAY [change /etc/hosts files so that each node knows other nodes] *************
+
+TASK [Gathering Facts] *********************************************************
+ok: [34.205.37.75]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 34.205.37.75
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 52.3.221.185
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 3.208.94.71
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [34.205.37.75] => (item=172.31.32.74 kumarnet001)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [52.3.221.185] => (item=172.31.32.74 kumarnet001)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [3.208.94.71] => (item=172.31.32.74 kumarnet001)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [34.205.37.75] => (item=172.31.32.11 kumarnet002)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [52.3.221.185] => (item=172.31.32.11 kumarnet002)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [3.208.94.71] => (item=172.31.32.11 kumarnet002)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [34.205.37.75] => (item=172.31.32.149 kumarnet003)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [52.3.221.185] => (item=172.31.32.149 kumarnet003)
+
+TASK [Setup /etc/hosts for the node] *******************************************
+changed: [3.208.94.71] => (item=172.31.32.149 kumarnet003)
+
+PLAY [Inform the installer] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [debug] *******************************************************************
+ok: [cloud] => {
+    "msg": "The work load started at 12:31:55, ended at 12:34:16"
+}
+
+PLAY RECAP *********************************************************************
+3.208.94.71                : ok=3    changed=1    unreachable=0    failed=0   
+34.205.37.75               : ok=3    changed=1    unreachable=0    failed=0   
+52.3.221.185               : ok=3    changed=1    unreachable=0    failed=0   
+cloud                      : ok=28   changed=10   unreachable=0    failed=0   
+kumarnet001                : ok=6    changed=1    unreachable=0    failed=0   
+kumarnet002                : ok=6    changed=1    unreachable=0    failed=0   
+kumarnet003                : ok=6    changed=1    unreachable=0    failed=0   
+

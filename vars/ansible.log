@@ -1,0 +1,1221 @@
+2019-04-02 12:31:54,789 p=7040 u=ubuntu |  PLAY [Get start timestamp] *****************************************************
+2019-04-02 12:31:54,797 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:31:55,576 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:31:55,601 p=7040 u=ubuntu |  TASK [set_fact] ****************************************************************
+2019-04-02 12:31:55,624 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:31:55,637 p=7040 u=ubuntu |  PLAY [Prepare to run the workload] *********************************************
+2019-04-02 12:31:55,661 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:31:56,147 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:31:56,174 p=7040 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:31:56,277 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/prepare/tasks/apply.yml for cloud
+2019-04-02 12:31:56,304 p=7040 u=ubuntu |  TASK [Setup env specific variables] ********************************************
+2019-04-02 12:31:56,330 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:31:56,357 p=7040 u=ubuntu |  TASK [Setup VPC filter if VPC ID defined] **************************************
+2019-04-02 12:31:56,372 p=7040 u=ubuntu |  skipping: [cloud]
+2019-04-02 12:31:56,397 p=7040 u=ubuntu |  TASK [Setup Subnet filter if Subnet ID defined] ********************************
+2019-04-02 12:31:56,412 p=7040 u=ubuntu |  skipping: [cloud]
+2019-04-02 12:31:56,438 p=7040 u=ubuntu |  TASK [Retrieve AWS specific image flavor] **************************************
+2019-04-02 12:32:00,579 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:32:00,605 p=7040 u=ubuntu |  TASK [Set ubuntu_ami_id] *******************************************************
+2019-04-02 12:32:00,633 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:32:00,659 p=7040 u=ubuntu |  TASK [Create a key-pair] *******************************************************
+2019-04-02 12:32:02,896 p=7040 u=ubuntu |  changed: [cloud] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB9pyVXDK6bZ+wu21WwF0kku4Cu1RjnP0IudysFJKFIu0S5ZkNB4qvF0oR4yrqZHFQ8hA0gDboes+CSpskcc6F7jA6bjkTv8pkruNosNxiuowcMMuT1r/0/7EfaAU/H/R8FmZ3tzUpO20Xg4zef8gzXZCimHqn1VqPxU5pahTrCSAdTQaiyiOsDPRijSqVqL77jkVkGE/EBboGk4TlnG0lYogOM+FfrImfWVEVyWxEUJNq8aBp6JyHjW33Y18ebOJsirrgE8xMSOWOX2c0/VG3jQru8JXybCmdfXUDp8x/waOyosJXjvvVF172Zzi6KZFxFbGVhLEzrpHy3cCMV84t ubuntu@ip-172-31-23-99)
+2019-04-02 12:32:02,922 p=7040 u=ubuntu |  TASK [Gather vpc facts] ********************************************************
+2019-04-02 12:32:05,499 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:32:05,523 p=7040 u=ubuntu |  TASK [Create EC2 security group] ***********************************************
+2019-04-02 12:32:15,396 p=7040 u=ubuntu |  changed: [cloud]
+2019-04-02 12:32:15,421 p=7040 u=ubuntu |  TASK [ec2_group_facts] *********************************************************
+2019-04-02 12:32:16,986 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:32:17,012 p=7040 u=ubuntu |  TASK [Gather subnet facts] *****************************************************
+2019-04-02 12:32:18,471 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:32:18,496 p=7040 u=ubuntu |  TASK [Add provisioning host group] *********************************************
+2019-04-02 12:32:18,540 p=7040 u=ubuntu |  changed: [cloud] => (item=None)
+2019-04-02 12:32:18,547 p=7040 u=ubuntu |  changed: [cloud] => (item=None)
+2019-04-02 12:32:18,558 p=7040 u=ubuntu |  changed: [cloud] => (item=None)
+2019-04-02 12:32:18,559 p=7040 u=ubuntu |  changed: [cloud]
+2019-04-02 12:32:18,571 p=7040 u=ubuntu |  PLAY [provision servers] *******************************************************
+2019-04-02 12:32:19,726 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:32:19,726 p=7040 u=ubuntu |  ok: [kumarnet001]
+2019-04-02 12:32:19,783 p=7040 u=ubuntu |  ok: [kumarnet002]
+2019-04-02 12:32:19,785 p=7040 u=ubuntu |  ok: [kumarnet003]
+2019-04-02 12:32:19,899 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet001
+2019-04-02 12:32:20,025 p=7040 u=ubuntu |  TASK [Setup env specific variables] ********************************************
+2019-04-02 12:32:20,026 p=7040 u=ubuntu |  ok: [kumarnet001]
+2019-04-02 12:32:20,067 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet002
+2019-04-02 12:32:20,147 p=7040 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *****************
+2019-04-02 12:32:20,148 p=7040 u=ubuntu |  ok: [kumarnet001]
+2019-04-02 12:32:20,206 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/provision/tasks/apply.yml for kumarnet003
+2019-04-02 12:32:20,373 p=7040 u=ubuntu |  TASK [Setup env specific variables] ********************************************
+2019-04-02 12:32:20,373 p=7040 u=ubuntu |  ok: [kumarnet002]
+2019-04-02 12:32:20,446 p=7040 u=ubuntu |  TASK [Setup env specific variables] ********************************************
+2019-04-02 12:32:20,446 p=7040 u=ubuntu |  ok: [kumarnet003]
+2019-04-02 12:32:20,530 p=7040 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *****************
+2019-04-02 12:32:20,532 p=7040 u=ubuntu |  ok: [kumarnet002]
+2019-04-02 12:32:20,610 p=7040 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *****************
+2019-04-02 12:32:20,610 p=7040 u=ubuntu |  ok: [kumarnet003]
+2019-04-02 12:32:46,909 p=7040 u=ubuntu |  TASK [Launch new instance] *****************************************************
+2019-04-02 12:32:46,909 p=7040 u=ubuntu |  changed: [kumarnet001]
+2019-04-02 12:32:46,976 p=7040 u=ubuntu |  TASK [Launch new instance] *****************************************************
+2019-04-02 12:32:46,977 p=7040 u=ubuntu |  changed: [kumarnet002]
+2019-04-02 12:32:47,024 p=7040 u=ubuntu |  TASK [Setup variables for generate host groups] ********************************
+2019-04-02 12:32:47,025 p=7040 u=ubuntu |  ok: [kumarnet001]
+2019-04-02 12:32:47,077 p=7040 u=ubuntu |  TASK [Setup variables for generate host groups] ********************************
+2019-04-02 12:32:47,077 p=7040 u=ubuntu |  ok: [kumarnet002]
+2019-04-02 12:32:47,121 p=7040 u=ubuntu |  TASK [Use public ip address when private ip is empty] **************************
+2019-04-02 12:32:47,121 p=7040 u=ubuntu |  skipping: [kumarnet001]
+2019-04-02 12:32:47,164 p=7040 u=ubuntu |  TASK [Use public ip address when private ip is empty] **************************
+2019-04-02 12:32:47,165 p=7040 u=ubuntu |  skipping: [kumarnet002]
+2019-04-02 12:32:47,208 p=7040 u=ubuntu |  TASK [Use private ip address when public ip is empty] **************************
+2019-04-02 12:32:47,208 p=7040 u=ubuntu |  skipping: [kumarnet001]
+2019-04-02 12:32:47,249 p=7040 u=ubuntu |  TASK [Use private ip address when public ip is empty] **************************
+2019-04-02 12:32:47,249 p=7040 u=ubuntu |  skipping: [kumarnet002]
+2019-04-02 12:33:02,987 p=7040 u=ubuntu |  TASK [Launch new instance] *****************************************************
+2019-04-02 12:33:02,987 p=7040 u=ubuntu |  changed: [kumarnet003]
+2019-04-02 12:33:03,044 p=7040 u=ubuntu |  TASK [Setup variables for generate host groups] ********************************
+2019-04-02 12:33:03,044 p=7040 u=ubuntu |  ok: [kumarnet003]
+2019-04-02 12:33:03,090 p=7040 u=ubuntu |  TASK [Use public ip address when private ip is empty] **************************
+2019-04-02 12:33:03,090 p=7040 u=ubuntu |  skipping: [kumarnet003]
+2019-04-02 12:33:03,138 p=7040 u=ubuntu |  TASK [Use private ip address when public ip is empty] **************************
+2019-04-02 12:33:03,138 p=7040 u=ubuntu |  skipping: [kumarnet003]
+2019-04-02 12:33:03,199 p=7040 u=ubuntu |  PLAY [Post provision process] **************************************************
+2019-04-02 12:33:03,224 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:33:03,702 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:33:03,731 p=7040 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:33:03,777 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/postprovision/tasks/apply.yml for cloud
+2019-04-02 12:33:03,804 p=7040 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:33:03,854 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_aws/postprovision/tasks/../../../cloud_os/postprovision/tasks/apply.yml for cloud
+2019-04-02 12:33:03,881 p=7040 u=ubuntu |  TASK [Ensure we have a working directory to save runtime files] ****************
+2019-04-02 12:33:04,239 p=7040 u=ubuntu |  changed: [cloud]
+2019-04-02 12:33:04,266 p=7040 u=ubuntu |  TASK [Remove the runhost file] *************************************************
+2019-04-02 12:33:04,452 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:33:04,478 p=7040 u=ubuntu |  TASK [Remove the fabric host file] *********************************************
+2019-04-02 12:33:04,664 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:33:04,690 p=7040 u=ubuntu |  TASK [Setup runhosts file] *****************************************************
+2019-04-02 12:33:05,029 p=7040 u=ubuntu |  changed: [cloud] => (item=cloud ansible_host=127.0.0.1 ansible_python_interpreter=python)
+2019-04-02 12:33:05,056 p=7040 u=ubuntu |  TASK [Add the node to host group named allnodes] *******************************
+2019-04-02 12:33:05,159 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet001)
+2019-04-02 12:33:05,226 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet002)
+2019-04-02 12:33:05,297 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet003)
+2019-04-02 12:33:05,324 p=7040 u=ubuntu |  TASK [Add the node to host group with specified IP] ****************************
+2019-04-02 12:33:05,434 p=7040 u=ubuntu |  changed: [cloud] => (item=[u'kumarnet001', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+2019-04-02 12:33:05,507 p=7040 u=ubuntu |  changed: [cloud] => (item=[u'kumarnet001', {u'member': [u'kumarnet001'], u'type': u'builders'}])
+2019-04-02 12:33:05,586 p=7040 u=ubuntu |  changed: [cloud] => (item=[u'kumarnet002', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+2019-04-02 12:33:05,593 p=7040 u=ubuntu |  skipping: [cloud] => (item=[u'kumarnet002', {u'member': [u'kumarnet001'], u'type': u'builders'}]) 
+2019-04-02 12:33:05,668 p=7040 u=ubuntu |  changed: [cloud] => (item=[u'kumarnet003', {u'member': [u'kumarnet001', u'kumarnet002', u'kumarnet003'], u'type': u'etcdnodes'}])
+2019-04-02 12:33:05,676 p=7040 u=ubuntu |  skipping: [cloud] => (item=[u'kumarnet003', {u'member': [u'kumarnet001'], u'type': u'builders'}]) 
+2019-04-02 12:33:05,703 p=7040 u=ubuntu |  TASK [Add all the hosts to the file] *******************************************
+2019-04-02 12:33:05,980 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet001)
+2019-04-02 12:33:06,225 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet002)
+2019-04-02 12:33:06,522 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet003)
+2019-04-02 12:33:06,550 p=7040 u=ubuntu |  TASK [Setup groups in the inventory file] **************************************
+2019-04-02 12:33:06,747 p=7040 u=ubuntu |  changed: [cloud] => (item=)
+2019-04-02 12:33:06,953 p=7040 u=ubuntu |  changed: [cloud] => (item=[allnodes])
+2019-04-02 12:33:07,117 p=7040 u=ubuntu |  changed: [cloud] => (item=52.3.221.185)
+2019-04-02 12:33:07,283 p=7040 u=ubuntu |  changed: [cloud] => (item=3.208.94.71)
+2019-04-02 12:33:07,447 p=7040 u=ubuntu |  changed: [cloud] => (item=34.205.37.75)
+2019-04-02 12:33:07,609 p=7040 u=ubuntu |  changed: [cloud] => (item=)
+2019-04-02 12:33:07,773 p=7040 u=ubuntu |  changed: [cloud] => (item=[etcdnodes])
+2019-04-02 12:33:07,935 p=7040 u=ubuntu |  changed: [cloud] => (item=52.3.221.185)
+2019-04-02 12:33:08,096 p=7040 u=ubuntu |  changed: [cloud] => (item=3.208.94.71)
+2019-04-02 12:33:08,258 p=7040 u=ubuntu |  changed: [cloud] => (item=34.205.37.75)
+2019-04-02 12:33:08,419 p=7040 u=ubuntu |  changed: [cloud] => (item=)
+2019-04-02 12:33:08,583 p=7040 u=ubuntu |  changed: [cloud] => (item=[builders])
+2019-04-02 12:33:08,744 p=7040 u=ubuntu |  changed: [cloud] => (item=52.3.221.185)
+2019-04-02 12:33:08,773 p=7040 u=ubuntu |  TASK [Create the hosts file] ***************************************************
+2019-04-02 12:33:09,052 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet001)
+2019-04-02 12:33:09,257 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet002)
+2019-04-02 12:33:09,465 p=7040 u=ubuntu |  changed: [cloud] => (item=kumarnet003)
+2019-04-02 12:33:09,493 p=7040 u=ubuntu |  TASK [Wait until servers are up and runnning] **********************************
+2019-04-02 12:33:25,037 p=7040 u=ubuntu |  ok: [cloud] => (item=52.3.221.185)
+2019-04-02 12:33:40,385 p=7040 u=ubuntu |  ok: [cloud] => (item=3.208.94.71)
+2019-04-02 12:33:55,737 p=7040 u=ubuntu |  ok: [cloud] => (item=34.205.37.75)
+2019-04-02 12:33:55,750 p=7040 u=ubuntu |  PLAY [change /etc/hosts files so that each node knows other nodes] *************
+2019-04-02 12:34:03,759 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:34:03,759 p=7040 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:34:03,847 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 34.205.37.75
+2019-04-02 12:34:03,900 p=7040 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:34:03,968 p=7040 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:34:04,069 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 52.3.221.185
+2019-04-02 12:34:04,216 p=7040 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/cloud_os/namenode/tasks/apply.yml for 3.208.94.71
+2019-04-02 12:34:07,790 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:07,790 p=7040 u=ubuntu |  changed: [34.205.37.75] => (item=172.31.32.74 kumarnet001)
+2019-04-02 12:34:08,044 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:08,045 p=7040 u=ubuntu |  changed: [52.3.221.185] => (item=172.31.32.74 kumarnet001)
+2019-04-02 12:34:08,168 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:08,168 p=7040 u=ubuntu |  changed: [3.208.94.71] => (item=172.31.32.74 kumarnet001)
+2019-04-02 12:34:11,583 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:11,583 p=7040 u=ubuntu |  changed: [34.205.37.75] => (item=172.31.32.11 kumarnet002)
+2019-04-02 12:34:11,888 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:11,888 p=7040 u=ubuntu |  changed: [52.3.221.185] => (item=172.31.32.11 kumarnet002)
+2019-04-02 12:34:12,044 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:12,044 p=7040 u=ubuntu |  changed: [3.208.94.71] => (item=172.31.32.11 kumarnet002)
+2019-04-02 12:34:15,368 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:15,368 p=7040 u=ubuntu |  changed: [34.205.37.75] => (item=172.31.32.149 kumarnet003)
+2019-04-02 12:34:15,735 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:15,735 p=7040 u=ubuntu |  changed: [52.3.221.185] => (item=172.31.32.149 kumarnet003)
+2019-04-02 12:34:15,908 p=7040 u=ubuntu |  TASK [Setup /etc/hosts for the node] *******************************************
+2019-04-02 12:34:15,909 p=7040 u=ubuntu |  changed: [3.208.94.71] => (item=172.31.32.149 kumarnet003)
+2019-04-02 12:34:15,961 p=7040 u=ubuntu |  PLAY [Inform the installer] ****************************************************
+2019-04-02 12:34:15,984 p=7040 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:34:16,463 p=7040 u=ubuntu |  ok: [cloud]
+2019-04-02 12:34:16,487 p=7040 u=ubuntu |  TASK [debug] *******************************************************************
+2019-04-02 12:34:16,535 p=7040 u=ubuntu |  ok: [cloud] => {
+    "msg": "The work load started at 12:31:55, ended at 12:34:16"
+}
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  PLAY RECAP *********************************************************************
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  3.208.94.71                : ok=3    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  34.205.37.75               : ok=3    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  52.3.221.185               : ok=3    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  cloud                      : ok=28   changed=10   unreachable=0    failed=0   
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  kumarnet001                : ok=6    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:16,537 p=7040 u=ubuntu |  kumarnet002                : ok=6    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:16,538 p=7040 u=ubuntu |  kumarnet003                : ok=6    changed=1    unreachable=0    failed=0   
+2019-04-02 12:34:17,404 p=8406 u=ubuntu |  PLAY [Get start timestamp] *****************************************************
+2019-04-02 12:34:17,412 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:34:18,185 p=8406 u=ubuntu |  ok: [cloud]
+2019-04-02 12:34:18,210 p=8406 u=ubuntu |  TASK [set_fact] ****************************************************************
+2019-04-02 12:34:18,235 p=8406 u=ubuntu |  ok: [cloud]
+2019-04-02 12:34:18,247 p=8406 u=ubuntu |  PLAY [fast initialize all the servers] *****************************************
+2019-04-02 12:34:23,109 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:34:23,109 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:34:23,147 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:34:23,212 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:34:23,413 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/fastinitnode/tasks/apply.yml for 34.205.37.75, 52.3.221.185
+2019-04-02 12:34:23,606 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/fastinitnode/tasks/apply.yml for 3.208.94.71
+2019-04-02 12:34:27,436 p=8406 u=ubuntu |  TASK [Figuring out the server architecture] ************************************
+2019-04-02 12:34:27,436 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:34:27,500 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:34:27,546 p=8406 u=ubuntu |  TASK [Figuring out the server architecture] ************************************
+2019-04-02 12:34:27,546 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:34:31,385 p=8406 u=ubuntu |  TASK [Figuring out the OS release] *********************************************
+2019-04-02 12:34:31,385 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:34:31,531 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:34:31,531 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:34:31,593 p=8406 u=ubuntu |  TASK [Figuring out the OS release] *********************************************
+2019-04-02 12:34:31,594 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:34:31,688 p=8406 u=ubuntu |  TASK [Figuring out the OS release] *********************************************
+2019-04-02 12:34:31,688 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:34:31,812 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:34:31,812 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:34:31,912 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:34:31,912 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:34:35,856 p=8406 u=ubuntu |  TASK [Ensure gopath exists] ****************************************************
+2019-04-02 12:34:35,856 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item=/opt/go)
+2019-04-02 12:34:35,965 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item=/opt/go)
+2019-04-02 12:34:36,092 p=8406 u=ubuntu |  TASK [Ensure gopath exists] ****************************************************
+2019-04-02 12:34:36,092 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item=/opt/go)
+2019-04-02 12:34:39,896 p=8406 u=ubuntu |  TASK [Ensure gopath exists] ****************************************************
+2019-04-02 12:34:39,897 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item=/opt/gopath)
+2019-04-02 12:34:40,097 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item=/opt/gopath)
+2019-04-02 12:34:40,265 p=8406 u=ubuntu |  TASK [Ensure gopath exists] ****************************************************
+2019-04-02 12:34:40,273 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item=/opt/gopath)
+2019-04-02 12:34:45,861 p=8406 u=ubuntu |  TASK [Add Docker's official GPG key] *******************************************
+2019-04-02 12:34:45,861 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:34:45,912 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:34:46,003 p=8406 u=ubuntu |  TASK [Add Docker's official GPG key] *******************************************
+2019-04-02 12:34:46,003 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:34:56,375 p=8406 u=ubuntu |  TASK [Add docker-ce repository] ************************************************
+2019-04-02 12:34:56,375 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:34:57,552 p=8406 u=ubuntu |  TASK [Add docker-ce repository] ************************************************
+2019-04-02 12:34:57,552 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:34:57,809 p=8406 u=ubuntu |  TASK [Add docker-ce repository] ************************************************
+2019-04-02 12:34:57,810 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:35:24,798 p=8406 u=ubuntu |  TASK [Install docker, pip and other tools via apt] *****************************
+2019-04-02 12:35:24,798 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:35:27,714 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:35:29,399 p=8406 u=ubuntu |  TASK [Install docker, pip and other tools via apt] *****************************
+2019-04-02 12:35:29,400 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:35:31,195 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:31,195 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'args': u'--upgrade', u'name': u'pip'})
+2019-04-02 12:35:33,871 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'args': u'--upgrade', u'name': u'pip'})
+2019-04-02 12:35:35,536 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:35,536 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'args': u'--upgrade', u'name': u'pip'})
+2019-04-02 12:35:35,949 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:35,949 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'name': u'nose'})
+2019-04-02 12:35:38,526 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'name': u'nose'})
+2019-04-02 12:35:40,257 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:40,257 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'name': u'nose'})
+2019-04-02 12:35:45,922 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:45,922 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'name': u'docker-compose'})
+2019-04-02 12:35:48,438 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'name': u'docker-compose'})
+2019-04-02 12:35:50,285 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:50,285 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'name': u'docker-compose'})
+2019-04-02 12:35:51,085 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:51,085 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'name': u'protobuf'})
+2019-04-02 12:35:53,529 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'name': u'protobuf'})
+2019-04-02 12:35:55,506 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:55,506 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'name': u'protobuf'})
+2019-04-02 12:35:55,890 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:35:55,890 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'name': u'couchdb==1.0'})
+2019-04-02 12:35:58,268 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'name': u'couchdb==1.0'})
+2019-04-02 12:36:00,352 p=8406 u=ubuntu |  TASK [Install python packages] *************************************************
+2019-04-02 12:36:00,352 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'name': u'couchdb==1.0'})
+2019-04-02 12:36:00,459 p=8406 u=ubuntu |  TASK [Grant the user docker permission] ****************************************
+2019-04-02 12:36:00,459 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:36:02,538 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:36:04,785 p=8406 u=ubuntu |  TASK [Grant the user docker permission] ****************************************
+2019-04-02 12:36:04,785 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:36:09,484 p=8406 u=ubuntu |  TASK [Place the certificate in the right place] ********************************
+2019-04-02 12:36:09,484 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+2019-04-02 12:36:11,143 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+2019-04-02 12:36:13,526 p=8406 u=ubuntu |  TASK [Place the certificate in the right place] ********************************
+2019-04-02 12:36:13,526 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'src': u'/home/ubuntu/.ssh/fd.pub', u'target': u'/opt/gopath/id_rsa.pub'})
+2019-04-02 12:36:18,093 p=8406 u=ubuntu |  TASK [Place the certificate in the right place] ********************************
+2019-04-02 12:36:18,093 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+2019-04-02 12:36:19,593 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+2019-04-02 12:36:22,216 p=8406 u=ubuntu |  TASK [Place the certificate in the right place] ********************************
+2019-04-02 12:36:22,216 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item={u'src': u'/home/ubuntu/.ssh/fd', u'target': u'/opt/gopath/id_rsa'})
+2019-04-02 12:36:22,272 p=8406 u=ubuntu |  PLAY [Setting up etcd services] ************************************************
+2019-04-02 12:36:22,296 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:36:26,895 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:36:27,113 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:36:27,199 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:36:27,224 p=8406 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:36:27,391 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/etcdsetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:36:27,451 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:36:27,665 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:36:27,724 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:36:27,755 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:36:27,780 p=8406 u=ubuntu |  TASK [Create etcd cluster parameter] *******************************************
+2019-04-02 12:36:28,005 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=52.3.221.185)
+2019-04-02 12:36:28,097 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=52.3.221.185)
+2019-04-02 12:36:28,142 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=3.208.94.71)
+2019-04-02 12:36:28,188 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=52.3.221.185)
+2019-04-02 12:36:28,235 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=3.208.94.71)
+2019-04-02 12:36:28,289 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=34.205.37.75)
+2019-04-02 12:36:28,315 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=3.208.94.71)
+2019-04-02 12:36:28,352 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=34.205.37.75)
+2019-04-02 12:36:28,385 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=34.205.37.75)
+2019-04-02 12:36:28,410 p=8406 u=ubuntu |  TASK [Fix the spacing issues] **************************************************
+2019-04-02 12:36:28,534 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:36:28,553 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:36:28,582 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:36:28,607 p=8406 u=ubuntu |  TASK [Ensure etcd service directory exists] ************************************
+2019-04-02 12:36:32,931 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item=/opt/fabric/bin/etcddata)
+2019-04-02 12:36:32,938 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item=/opt/fabric/bin/etcddata)
+2019-04-02 12:36:33,012 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item=/opt/fabric/bin/etcddata)
+2019-04-02 12:36:33,037 p=8406 u=ubuntu |  TASK [Unpack etcd binaries] ****************************************************
+2019-04-02 12:36:41,159 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:36:41,164 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:36:41,564 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:36:41,589 p=8406 u=ubuntu |  TASK [Config services] *********************************************************
+2019-04-02 12:36:50,389 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:36:50,640 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:36:50,752 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:36:50,777 p=8406 u=ubuntu |  TASK [Reload services] *********************************************************
+2019-04-02 12:36:54,899 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:36:54,919 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:36:54,990 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:36:55,017 p=8406 u=ubuntu |  TASK [Enable and start etcd services] ******************************************
+2019-04-02 12:36:59,888 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:36:59,895 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:36:59,900 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:36:59,911 p=8406 u=ubuntu |  PLAY [setup flanned on all nodes] **********************************************
+2019-04-02 12:36:59,935 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:37:04,521 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:04,529 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:04,977 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:05,001 p=8406 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:37:05,175 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/networksetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:37:05,202 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:37:05,349 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:05,406 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:05,432 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:05,459 p=8406 u=ubuntu |  TASK [Ensure flanneld directory exists] ****************************************
+2019-04-02 12:37:09,413 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=/opt/fabric/bin)
+2019-04-02 12:37:09,430 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=/opt/fabric/bin)
+2019-04-02 12:37:09,490 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=/opt/fabric/bin)
+2019-04-02 12:37:09,516 p=8406 u=ubuntu |  TASK [Get etcd ip address] *****************************************************
+2019-04-02 12:37:09,673 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:09,733 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:09,762 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:09,787 p=8406 u=ubuntu |  TASK [Reset etcd] **************************************************************
+2019-04-02 12:37:09,915 p=8406 u=ubuntu |  skipping: [3.208.94.71] => (item=coreos.com) 
+2019-04-02 12:37:09,935 p=8406 u=ubuntu |  skipping: [34.205.37.75] => (item=coreos.com) 
+2019-04-02 12:37:14,209 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=coreos.com)
+2019-04-02 12:37:14,236 p=8406 u=ubuntu |  TASK [Initialize the flanneld configuration in etcd] ***************************
+2019-04-02 12:37:14,355 p=8406 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:37:14,370 p=8406 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:37:18,231 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:18,256 p=8406 u=ubuntu |  TASK [Create etcd cluster endpoint parameter] **********************************
+2019-04-02 12:37:18,420 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=52.3.221.185)
+2019-04-02 12:37:18,494 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=3.208.94.71)
+2019-04-02 12:37:18,507 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=52.3.221.185)
+2019-04-02 12:37:18,579 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=34.205.37.75)
+2019-04-02 12:37:18,584 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=3.208.94.71)
+2019-04-02 12:37:18,601 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=52.3.221.185)
+2019-04-02 12:37:18,728 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=34.205.37.75)
+2019-04-02 12:37:18,736 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=3.208.94.71)
+2019-04-02 12:37:18,764 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=34.205.37.75)
+2019-04-02 12:37:18,790 p=8406 u=ubuntu |  TASK [Make the endpoint the right format] **************************************
+2019-04-02 12:37:19,022 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:19,078 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:19,107 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:19,133 p=8406 u=ubuntu |  TASK [Download flannel package] ************************************************
+2019-04-02 12:37:24,024 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:24,129 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:24,138 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:24,162 p=8406 u=ubuntu |  TASK [Unpack flannel binaries] *************************************************
+2019-04-02 12:37:31,614 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:31,639 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:31,734 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:31,759 p=8406 u=ubuntu |  TASK [Configure flanneld services] *********************************************
+2019-04-02 12:37:40,392 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:40,447 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:40,563 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:40,588 p=8406 u=ubuntu |  TASK [Change IP Forwarding] ****************************************************
+2019-04-02 12:37:44,528 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:44,532 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:44,826 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:44,850 p=8406 u=ubuntu |  TASK [Reload services] *********************************************************
+2019-04-02 12:37:48,840 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:48,896 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:48,909 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:48,934 p=8406 u=ubuntu |  TASK [Start the flanneld service] **********************************************
+2019-04-02 12:37:53,341 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:37:53,393 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:37:53,471 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:37:53,484 p=8406 u=ubuntu |  PLAY [setup dns attribute for docker service] **********************************
+2019-04-02 12:37:53,508 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:37:57,968 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:58,020 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:58,288 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:58,315 p=8406 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:37:58,489 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/dnsdocker/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:37:58,550 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:37:58,699 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:37:58,756 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:37:58,790 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:37:58,816 p=8406 u=ubuntu |  TASK [Wait for the flannel to setup the subnets] *******************************
+2019-04-02 12:38:02,893 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:02,900 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:38:03,014 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:38:03,040 p=8406 u=ubuntu |  TASK [Get the bip address] *****************************************************
+2019-04-02 12:38:06,975 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:06,992 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:07,043 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:07,069 p=8406 u=ubuntu |  TASK [Get the mtu] *************************************************************
+2019-04-02 12:38:11,005 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:11,019 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:11,080 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:11,106 p=8406 u=ubuntu |  TASK [Adding dns entry to the docker service] **********************************
+2019-04-02 12:38:19,761 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:19,805 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:19,971 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:19,997 p=8406 u=ubuntu |  TASK [Reload daemon service] ***************************************************
+2019-04-02 12:38:24,119 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:24,138 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:24,203 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:24,230 p=8406 u=ubuntu |  TASK [Restart the docker services] *********************************************
+2019-04-02 12:38:28,672 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item=docker.socket)
+2019-04-02 12:38:29,589 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item=docker.socket)
+2019-04-02 12:38:29,612 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item=docker.socket)
+2019-04-02 12:38:32,965 p=8406 u=ubuntu |  changed: [3.208.94.71] => (item=docker)
+2019-04-02 12:38:35,036 p=8406 u=ubuntu |  changed: [34.205.37.75] => (item=docker)
+2019-04-02 12:38:35,067 p=8406 u=ubuntu |  changed: [52.3.221.185] => (item=docker)
+2019-04-02 12:38:35,077 p=8406 u=ubuntu |  PLAY [setup dns services and registrator] **************************************
+2019-04-02 12:38:35,102 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:38:40,037 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:40,084 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:38:40,118 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:38:40,144 p=8406 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:38:40,324 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/dnssetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:38:40,354 p=8406 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:38:40,570 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:40,632 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:38:40,663 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:38:40,689 p=8406 u=ubuntu |  TASK [Get etcd ip address] *****************************************************
+2019-04-02 12:38:40,849 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:40,910 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:38:40,941 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:38:40,967 p=8406 u=ubuntu |  TASK [Reset etcd] **************************************************************
+2019-04-02 12:38:41,097 p=8406 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:38:41,112 p=8406 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:38:45,335 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:45,361 p=8406 u=ubuntu |  TASK [Initialize skydns configuration in etcd] *********************************
+2019-04-02 12:38:45,484 p=8406 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:38:45,499 p=8406 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:38:49,352 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:49,378 p=8406 u=ubuntu |  TASK [Create etcd cluster endpoint parameter] **********************************
+2019-04-02 12:38:49,546 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=52.3.221.185)
+2019-04-02 12:38:49,624 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=3.208.94.71)
+2019-04-02 12:38:49,637 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=52.3.221.185)
+2019-04-02 12:38:49,712 p=8406 u=ubuntu |  ok: [52.3.221.185] => (item=34.205.37.75)
+2019-04-02 12:38:49,717 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=3.208.94.71)
+2019-04-02 12:38:49,732 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=52.3.221.185)
+2019-04-02 12:38:49,776 p=8406 u=ubuntu |  ok: [3.208.94.71] => (item=34.205.37.75)
+2019-04-02 12:38:49,782 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=3.208.94.71)
+2019-04-02 12:38:49,812 p=8406 u=ubuntu |  ok: [34.205.37.75] => (item=34.205.37.75)
+2019-04-02 12:38:49,839 p=8406 u=ubuntu |  TASK [Make the endpoint the right format] **************************************
+2019-04-02 12:38:49,963 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:38:49,977 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:38:50,008 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:38:50,035 p=8406 u=ubuntu |  TASK [Check if there are existing skydns containers] ***************************
+2019-04-02 12:38:54,037 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:54,244 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:54,489 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:54,516 p=8406 u=ubuntu |  TASK [Remove the existing skydns and registrator containers] *******************
+2019-04-02 12:38:54,563 p=8406 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:38:54,607 p=8406 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:38:54,622 p=8406 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:38:54,649 p=8406 u=ubuntu |  TASK [Get nameservers] *********************************************************
+2019-04-02 12:38:58,573 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:38:58,595 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:38:58,657 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:38:58,683 p=8406 u=ubuntu |  TASK [Start skydns service] ****************************************************
+2019-04-02 12:38:58,856 p=8406 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:38:59,025 p=8406 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:39:04,128 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:39:04,154 p=8406 u=ubuntu |  TASK [Start registrator service] ***********************************************
+2019-04-02 12:39:09,859 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:39:09,936 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:39:09,950 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:39:09,961 p=8406 u=ubuntu |  PLAY [Reset connections] *******************************************************
+2019-04-02 12:39:09,985 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:39:14,674 p=8406 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:39:14,756 p=8406 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:39:14,835 p=8406 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:39:14,863 p=8406 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:39:15,043 p=8406 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/env_flanneld/resetconn/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:39:15,071 p=8406 u=ubuntu |  TASK [Reset ssh connection to make group change take effects] ******************
+2019-04-02 12:39:30,338 p=8406 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:39:30,339 p=8406 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:39:30,374 p=8406 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:39:30,382 p=8406 u=ubuntu |  PLAY [inform the installer] ****************************************************
+2019-04-02 12:39:30,405 p=8406 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:39:30,894 p=8406 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:30,918 p=8406 u=ubuntu |  TASK [debug] *******************************************************************
+2019-04-02 12:39:30,968 p=8406 u=ubuntu |  ok: [cloud] => {
+    "msg": "The work load started at 12:34:17, ended at 12:39:30"
+}
+2019-04-02 12:39:30,970 p=8406 u=ubuntu |  PLAY RECAP *********************************************************************
+2019-04-02 12:39:30,970 p=8406 u=ubuntu |  3.208.94.71                : ok=56   changed=29   unreachable=0    failed=0   
+2019-04-02 12:39:30,970 p=8406 u=ubuntu |  34.205.37.75               : ok=56   changed=29   unreachable=0    failed=0   
+2019-04-02 12:39:30,970 p=8406 u=ubuntu |  52.3.221.185               : ok=61   changed=30   unreachable=0    failed=0   
+2019-04-02 12:39:30,970 p=8406 u=ubuntu |  cloud                      : ok=4    changed=0    unreachable=0    failed=0   
+2019-04-02 12:39:31,892 p=10656 u=ubuntu |  PLAY [Get start timestamp] *****************************************************
+2019-04-02 12:39:31,900 p=10656 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:39:32,649 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:32,675 p=10656 u=ubuntu |  TASK [set_fact] ****************************************************************
+2019-04-02 12:39:32,699 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:32,711 p=10656 u=ubuntu |  PLAY [get fabric crypto tool] **************************************************
+2019-04-02 12:39:32,735 p=10656 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:39:33,077 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:33,103 p=10656 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:39:33,145 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/getbin/tasks/apply.yml for cloud
+2019-04-02 12:39:33,170 p=10656 u=ubuntu |  TASK [Setup variables] *********************************************************
+2019-04-02 12:39:33,194 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:33,219 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:39:33,492 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:33,516 p=10656 u=ubuntu |  TASK [stat] ********************************************************************
+2019-04-02 12:39:33,771 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:33,796 p=10656 u=ubuntu |  TASK [Download fabric binaries] ************************************************
+2019-04-02 12:39:47,827 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:47,854 p=10656 u=ubuntu |  TASK [Download kubectl] ********************************************************
+2019-04-02 12:39:51,557 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:51,567 p=10656 u=ubuntu |  PLAY [generate certificates] ***************************************************
+2019-04-02 12:39:51,590 p=10656 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:39:51,933 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:51,959 p=10656 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:39:52,018 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/certsetup/tasks/apply.yml for cloud
+2019-04-02 12:39:52,049 p=10656 u=ubuntu |  TASK [Reuse common code] *******************************************************
+2019-04-02 12:39:52,105 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for cloud
+2019-04-02 12:39:52,136 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:39:52,166 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:52,193 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:39:52,377 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:52,402 p=10656 u=ubuntu |  TASK [Create component list] ***************************************************
+2019-04-02 12:39:52,444 p=10656 u=ubuntu |  ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:39:52,453 p=10656 u=ubuntu |  ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:39:52,466 p=10656 u=ubuntu |  ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:39:52,493 p=10656 u=ubuntu |  TASK [Sort component list] *****************************************************
+2019-04-02 12:39:52,517 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:52,544 p=10656 u=ubuntu |  TASK [Generate zookeeper node list] ********************************************
+2019-04-02 12:39:52,580 p=10656 u=ubuntu |  ok: [cloud] => (item=zookeeper1st)
+2019-04-02 12:39:52,582 p=10656 u=ubuntu |  ok: [cloud] => (item=zookeeper2nd)
+2019-04-02 12:39:52,591 p=10656 u=ubuntu |  ok: [cloud] => (item=zookeeper3rd)
+2019-04-02 12:39:52,620 p=10656 u=ubuntu |  TASK [Reset the index] *********************************************************
+2019-04-02 12:39:52,641 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:52,665 p=10656 u=ubuntu |  TASK [Generate kafka broker ids] ***********************************************
+2019-04-02 12:39:52,703 p=10656 u=ubuntu |  ok: [cloud] => (item=kafka1st)
+2019-04-02 12:39:52,705 p=10656 u=ubuntu |  ok: [cloud] => (item=kafka2nd)
+2019-04-02 12:39:52,712 p=10656 u=ubuntu |  ok: [cloud] => (item=kafka3rd)
+2019-04-02 12:39:52,737 p=10656 u=ubuntu |  TASK [Get all ca object list] **************************************************
+2019-04-02 12:39:52,775 p=10656 u=ubuntu |  ok: [cloud] => (item=ca1st.orga)
+2019-04-02 12:39:52,776 p=10656 u=ubuntu |  ok: [cloud] => (item=ca1st.orgb)
+2019-04-02 12:39:52,783 p=10656 u=ubuntu |  ok: [cloud] => (item=ca1st.orgc)
+2019-04-02 12:39:52,790 p=10656 u=ubuntu |  ok: [cloud] => (item=ca1st.orgd)
+2019-04-02 12:39:52,818 p=10656 u=ubuntu |  TASK [Get all peer object list] ************************************************
+2019-04-02 12:39:52,856 p=10656 u=ubuntu |  ok: [cloud] => (item=anchor@peer1st.orga)
+2019-04-02 12:39:52,859 p=10656 u=ubuntu |  ok: [cloud] => (item=anchor@peer1st.orgb)
+2019-04-02 12:39:52,867 p=10656 u=ubuntu |  ok: [cloud] => (item=worker@peer2nd.orga)
+2019-04-02 12:39:52,875 p=10656 u=ubuntu |  ok: [cloud] => (item=worker@peer2nd.orgb)
+2019-04-02 12:39:52,883 p=10656 u=ubuntu |  ok: [cloud] => (item=worker@peer3rd.orga)
+2019-04-02 12:39:52,892 p=10656 u=ubuntu |  ok: [cloud] => (item=worker@peer3rd.orgb)
+2019-04-02 12:39:52,918 p=10656 u=ubuntu |  TASK [Get all orderer object list] *********************************************
+2019-04-02 12:39:52,955 p=10656 u=ubuntu |  ok: [cloud] => (item=orderer1st.orgc)
+2019-04-02 12:39:52,957 p=10656 u=ubuntu |  ok: [cloud] => (item=orderer1st.orgd)
+2019-04-02 12:39:52,963 p=10656 u=ubuntu |  ok: [cloud] => (item=orderer2nd.orgc)
+2019-04-02 12:39:52,971 p=10656 u=ubuntu |  ok: [cloud] => (item=orderer2nd.orgd)
+2019-04-02 12:39:52,997 p=10656 u=ubuntu |  TASK [Find all anchor peers] ***************************************************
+2019-04-02 12:39:53,024 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,050 p=10656 u=ubuntu |  TASK [Create org anchor peer hash] *********************************************
+2019-04-02 12:39:53,088 p=10656 u=ubuntu |  ok: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:39:53,092 p=10656 u=ubuntu |  ok: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:39:53,119 p=10656 u=ubuntu |  TASK [Select a peer to run channel and chaincode command] **********************
+2019-04-02 12:39:53,145 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,171 p=10656 u=ubuntu |  TASK [Select an orderer to run channel and chaincode command] ******************
+2019-04-02 12:39:53,197 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,222 p=10656 u=ubuntu |  TASK [Get ca, peer and orderer orgs] *******************************************
+2019-04-02 12:39:53,253 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,277 p=10656 u=ubuntu |  TASK [Create all orgs list] ****************************************************
+2019-04-02 12:39:53,304 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,331 p=10656 u=ubuntu |  TASK [TLS] *********************************************************************
+2019-04-02 12:39:53,358 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:39:53,383 p=10656 u=ubuntu |  TASK [Mutual tls] **************************************************************
+2019-04-02 12:39:53,400 p=10656 u=ubuntu |  skipping: [cloud]
+2019-04-02 12:39:53,425 p=10656 u=ubuntu |  TASK [Create peerorg rootca list] **********************************************
+2019-04-02 12:39:53,451 p=10656 u=ubuntu |  skipping: [cloud] => (item=orga) 
+2019-04-02 12:39:53,453 p=10656 u=ubuntu |  skipping: [cloud] => (item=orgb) 
+2019-04-02 12:39:53,478 p=10656 u=ubuntu |  TASK [Create peers rootca list] ************************************************
+2019-04-02 12:39:53,507 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:39:53,509 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:39:53,515 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:39:53,521 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:39:53,527 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:39:53,534 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:39:53,560 p=10656 u=ubuntu |  TASK [Create orderers rootca list] *********************************************
+2019-04-02 12:39:53,588 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:39:53,589 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:39:53,595 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:39:53,601 p=10656 u=ubuntu |  skipping: [cloud] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:39:53,628 p=10656 u=ubuntu |  TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+2019-04-02 12:39:53,645 p=10656 u=ubuntu |  skipping: [cloud]
+2019-04-02 12:39:53,669 p=10656 u=ubuntu |  TASK [Ensure certificate directory is clean] ***********************************
+2019-04-02 12:39:53,800 p=10656 u=ubuntu |  ok: [cloud] => (item=absent)
+2019-04-02 12:39:53,898 p=10656 u=ubuntu |  changed: [cloud] => (item=directory)
+2019-04-02 12:39:53,924 p=10656 u=ubuntu |  TASK [Create crypto-config file] ***********************************************
+2019-04-02 12:39:54,297 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:54,322 p=10656 u=ubuntu |  TASK [Create the certificate files] ********************************************
+2019-04-02 12:39:54,658 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:54,683 p=10656 u=ubuntu |  TASK [Combine all orgs into one location] **************************************
+2019-04-02 12:39:54,813 p=10656 u=ubuntu |  changed: [cloud] => (item=peerOrganizations)
+2019-04-02 12:39:54,909 p=10656 u=ubuntu |  changed: [cloud] => (item=ordererOrganizations)
+2019-04-02 12:39:54,934 p=10656 u=ubuntu |  TASK [Create connection profiles] **********************************************
+2019-04-02 12:39:55,220 p=10656 u=ubuntu |  changed: [cloud] => (item=orga)
+2019-04-02 12:39:55,433 p=10656 u=ubuntu |  changed: [cloud] => (item=orgb)
+2019-04-02 12:39:55,649 p=10656 u=ubuntu |  changed: [cloud] => (item=orgc)
+2019-04-02 12:39:55,864 p=10656 u=ubuntu |  changed: [cloud] => (item=orgd)
+2019-04-02 12:39:55,890 p=10656 u=ubuntu |  TASK [Create yaml connection profiles] *****************************************
+2019-04-02 12:39:56,131 p=10656 u=ubuntu |  changed: [cloud] => (item=orga)
+2019-04-02 12:39:56,339 p=10656 u=ubuntu |  changed: [cloud] => (item=orgb)
+2019-04-02 12:39:56,555 p=10656 u=ubuntu |  changed: [cloud] => (item=orgc)
+2019-04-02 12:39:56,817 p=10656 u=ubuntu |  changed: [cloud] => (item=orgd)
+2019-04-02 12:39:56,843 p=10656 u=ubuntu |  TASK [Create endorsement policy file] ******************************************
+2019-04-02 12:39:57,064 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:39:57,088 p=10656 u=ubuntu |  TASK [Rename admin private key] ************************************************
+2019-04-02 12:39:57,272 p=10656 u=ubuntu |  changed: [cloud] => (item=orga)
+2019-04-02 12:39:57,374 p=10656 u=ubuntu |  changed: [cloud] => (item=orgb)
+2019-04-02 12:39:57,480 p=10656 u=ubuntu |  changed: [cloud] => (item=orgc)
+2019-04-02 12:39:57,583 p=10656 u=ubuntu |  changed: [cloud] => (item=orgd)
+2019-04-02 12:39:57,609 p=10656 u=ubuntu |  TASK [Rename ca private key] ***************************************************
+2019-04-02 12:39:57,741 p=10656 u=ubuntu |  changed: [cloud] => (item=orga)
+2019-04-02 12:39:57,842 p=10656 u=ubuntu |  changed: [cloud] => (item=orgb)
+2019-04-02 12:39:57,945 p=10656 u=ubuntu |  changed: [cloud] => (item=orgc)
+2019-04-02 12:39:58,047 p=10656 u=ubuntu |  changed: [cloud] => (item=orgd)
+2019-04-02 12:39:58,073 p=10656 u=ubuntu |  TASK [Rename ca tls private key] ***********************************************
+2019-04-02 12:39:58,204 p=10656 u=ubuntu |  changed: [cloud] => (item=orga)
+2019-04-02 12:39:58,300 p=10656 u=ubuntu |  changed: [cloud] => (item=orgb)
+2019-04-02 12:39:58,400 p=10656 u=ubuntu |  changed: [cloud] => (item=orgc)
+2019-04-02 12:39:58,500 p=10656 u=ubuntu |  changed: [cloud] => (item=orgd)
+2019-04-02 12:39:58,526 p=10656 u=ubuntu |  TASK [Upload bna file] *********************************************************
+2019-04-02 12:39:58,775 p=10656 u=ubuntu |  changed: [cloud] => (item=/home/ubuntu/nirajkvinit@gmail.com/kumarnet/secrets/networks/carauction-network.bna)
+2019-04-02 12:39:58,802 p=10656 u=ubuntu |  TASK [Create core.yml file for every peer] *************************************
+2019-04-02 12:39:59,143 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:39:59,369 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:39:59,597 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'})
+2019-04-02 12:39:59,825 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'})
+2019-04-02 12:40:00,065 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'})
+2019-04-02 12:40:00,294 p=10656 u=ubuntu |  changed: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'})
+2019-04-02 12:40:00,320 p=10656 u=ubuntu |  TASK [Create config tx file] ***************************************************
+2019-04-02 12:40:00,564 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:40:00,587 p=10656 u=ubuntu |  TASK [Create the gensis block and channel transaction] *************************
+2019-04-02 12:40:00,853 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:40:00,879 p=10656 u=ubuntu |  TASK [Change file permissions] *************************************************
+2019-04-02 12:40:01,010 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:40:01,036 p=10656 u=ubuntu |  TASK [Create ca config file] ***************************************************
+2019-04-02 12:40:01,076 p=10656 u=ubuntu |  TASK [Create a zip file of all certificates] ***********************************
+2019-04-02 12:40:01,384 p=10656 u=ubuntu |  changed: [cloud]
+2019-04-02 12:40:01,400 p=10656 u=ubuntu |  PLAY [setup fabric network] ****************************************************
+2019-04-02 12:40:01,408 p=10656 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:40:01,519 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/fabricsetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:40:01,529 p=10656 u=ubuntu |  TASK [Reuse common code] *******************************************************
+2019-04-02 12:40:01,626 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+2019-04-02 12:40:01,647 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:40:01,772 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:01,793 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:01,804 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:01,813 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:40:05,932 p=10656 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:40:06,061 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:40:06,187 p=10656 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:40:06,194 p=10656 u=ubuntu |  TASK [Create component list] ***************************************************
+2019-04-02 12:40:06,346 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:40:06,376 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:40:06,387 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:40:06,412 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:40:06,416 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:40:06,436 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:40:06,450 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:40:06,460 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:40:06,475 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:40:06,483 p=10656 u=ubuntu |  TASK [Sort component list] *****************************************************
+2019-04-02 12:40:06,591 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:06,611 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:06,622 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:06,631 p=10656 u=ubuntu |  TASK [Generate zookeeper node list] ********************************************
+2019-04-02 12:40:06,770 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper1st)
+2019-04-02 12:40:06,792 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper2nd)
+2019-04-02 12:40:06,798 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=zookeeper1st)
+2019-04-02 12:40:06,819 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=zookeeper2nd)
+2019-04-02 12:40:06,822 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper3rd)
+2019-04-02 12:40:06,828 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=zookeeper1st)
+2019-04-02 12:40:06,843 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=zookeeper3rd)
+2019-04-02 12:40:06,846 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=zookeeper2nd)
+2019-04-02 12:40:06,857 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=zookeeper3rd)
+2019-04-02 12:40:06,865 p=10656 u=ubuntu |  TASK [Reset the index] *********************************************************
+2019-04-02 12:40:06,962 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:06,981 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:06,990 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:06,998 p=10656 u=ubuntu |  TASK [Generate kafka broker ids] ***********************************************
+2019-04-02 12:40:07,122 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka1st)
+2019-04-02 12:40:07,141 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka2nd)
+2019-04-02 12:40:07,162 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=kafka1st)
+2019-04-02 12:40:07,168 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka3rd)
+2019-04-02 12:40:07,177 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=kafka2nd)
+2019-04-02 12:40:07,184 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=kafka1st)
+2019-04-02 12:40:07,194 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=kafka3rd)
+2019-04-02 12:40:07,195 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=kafka2nd)
+2019-04-02 12:40:07,205 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=kafka3rd)
+2019-04-02 12:40:07,214 p=10656 u=ubuntu |  TASK [Get all ca object list] **************************************************
+2019-04-02 12:40:07,348 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orga)
+2019-04-02 12:40:07,364 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgb)
+2019-04-02 12:40:07,371 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=ca1st.orga)
+2019-04-02 12:40:07,393 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=ca1st.orgb)
+2019-04-02 12:40:07,394 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgc)
+2019-04-02 12:40:07,410 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orga)
+2019-04-02 12:40:07,419 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=ca1st.orgc)
+2019-04-02 12:40:07,419 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgd)
+2019-04-02 12:40:07,428 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orgb)
+2019-04-02 12:40:07,441 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=ca1st.orgd)
+2019-04-02 12:40:07,446 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orgc)
+2019-04-02 12:40:07,454 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orgd)
+2019-04-02 12:40:07,463 p=10656 u=ubuntu |  TASK [Get all peer object list] ************************************************
+2019-04-02 12:40:07,598 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+2019-04-02 12:40:07,619 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+2019-04-02 12:40:07,629 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=anchor@peer1st.orga)
+2019-04-02 12:40:07,653 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=anchor@peer1st.orgb)
+2019-04-02 12:40:07,655 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+2019-04-02 12:40:07,664 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=anchor@peer1st.orga)
+2019-04-02 12:40:07,684 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer2nd.orga)
+2019-04-02 12:40:07,685 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+2019-04-02 12:40:07,688 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=anchor@peer1st.orgb)
+2019-04-02 12:40:07,713 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer2nd.orgb)
+2019-04-02 12:40:07,716 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+2019-04-02 12:40:07,719 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer2nd.orga)
+2019-04-02 12:40:07,745 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer3rd.orga)
+2019-04-02 12:40:07,748 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+2019-04-02 12:40:07,748 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer2nd.orgb)
+2019-04-02 12:40:07,770 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer3rd.orgb)
+2019-04-02 12:40:07,774 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer3rd.orga)
+2019-04-02 12:40:07,785 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer3rd.orgb)
+2019-04-02 12:40:07,793 p=10656 u=ubuntu |  TASK [Get all orderer object list] *********************************************
+2019-04-02 12:40:07,915 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgc)
+2019-04-02 12:40:07,935 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgd)
+2019-04-02 12:40:07,953 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer1st.orgc)
+2019-04-02 12:40:07,961 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgc)
+2019-04-02 12:40:07,969 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer1st.orgd)
+2019-04-02 12:40:07,983 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=orderer1st.orgc)
+2019-04-02 12:40:07,989 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgd)
+2019-04-02 12:40:07,996 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer2nd.orgc)
+2019-04-02 12:40:07,999 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=orderer1st.orgd)
+2019-04-02 12:40:08,013 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer2nd.orgd)
+2019-04-02 12:40:08,018 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=orderer2nd.orgc)
+2019-04-02 12:40:08,027 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=orderer2nd.orgd)
+2019-04-02 12:40:08,036 p=10656 u=ubuntu |  TASK [Find all anchor peers] ***************************************************
+2019-04-02 12:40:08,149 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:08,169 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:08,181 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:08,188 p=10656 u=ubuntu |  TASK [Create org anchor peer hash] *********************************************
+2019-04-02 12:40:08,338 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:40:08,360 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:40:08,365 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:40:08,381 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:40:08,388 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:40:08,396 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:40:08,404 p=10656 u=ubuntu |  TASK [Select a peer to run channel and chaincode command] **********************
+2019-04-02 12:40:08,522 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:08,543 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:08,552 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:08,559 p=10656 u=ubuntu |  TASK [Select an orderer to run channel and chaincode command] ******************
+2019-04-02 12:40:08,674 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:08,694 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:08,704 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:08,711 p=10656 u=ubuntu |  TASK [Get ca, peer and orderer orgs] *******************************************
+2019-04-02 12:40:08,828 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:08,847 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:08,858 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:08,866 p=10656 u=ubuntu |  TASK [Create all orgs list] ****************************************************
+2019-04-02 12:40:08,971 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:08,991 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:09,002 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:09,010 p=10656 u=ubuntu |  TASK [TLS] *********************************************************************
+2019-04-02 12:40:09,136 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:09,156 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:09,166 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:09,174 p=10656 u=ubuntu |  TASK [Mutual tls] **************************************************************
+2019-04-02 12:40:09,222 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:40:09,229 p=10656 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:40:09,243 p=10656 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:40:09,251 p=10656 u=ubuntu |  TASK [Create peerorg rootca list] **********************************************
+2019-04-02 12:40:09,313 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orga) 
+2019-04-02 12:40:09,325 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orgb) 
+2019-04-02 12:40:09,341 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item=orga) 
+2019-04-02 12:40:09,346 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item=orgb) 
+2019-04-02 12:40:09,357 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item=orga) 
+2019-04-02 12:40:09,358 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item=orgb) 
+2019-04-02 12:40:09,367 p=10656 u=ubuntu |  TASK [Create peers rootca list] ************************************************
+2019-04-02 12:40:09,429 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:40:09,444 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:40:09,460 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:40:09,463 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:40:09,472 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:40:09,484 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:40:09,489 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:40:09,494 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:40:09,504 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:40:09,508 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:40:09,512 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:40:09,524 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:40:09,530 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:40:09,532 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:40:09,542 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:40:09,544 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:40:09,551 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:40:09,558 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:40:09,567 p=10656 u=ubuntu |  TASK [Create orderers rootca list] *********************************************
+2019-04-02 12:40:09,627 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:40:09,640 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:40:09,653 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:40:09,660 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:40:09,666 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:40:09,679 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:40:09,685 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:40:09,693 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:40:09,698 p=10656 u=ubuntu |  skipping: [3.208.94.71] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:40:09,698 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:40:09,707 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:40:09,713 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:40:09,722 p=10656 u=ubuntu |  TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+2019-04-02 12:40:09,765 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:40:09,779 p=10656 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:40:09,788 p=10656 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:40:09,795 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:40:10,064 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:10,081 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:10,093 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:10,100 p=10656 u=ubuntu |  TASK [Make sure remote working directory exists] *******************************
+2019-04-02 12:40:14,342 p=10656 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:40:14,411 p=10656 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:40:14,482 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:40:14,490 p=10656 u=ubuntu |  TASK [Get peer container list] *************************************************
+2019-04-02 12:40:14,765 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+2019-04-02 12:40:14,789 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+2019-04-02 12:40:14,798 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer2nd.orga)
+2019-04-02 12:40:14,811 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=worker@peer2nd.orgb)
+2019-04-02 12:40:14,819 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer3rd.orga)
+2019-04-02 12:40:14,825 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=worker@peer3rd.orgb)
+2019-04-02 12:40:14,831 p=10656 u=ubuntu |  TASK [Get ca container list] ***************************************************
+2019-04-02 12:40:15,099 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orga)
+2019-04-02 12:40:15,124 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=ca1st.orgb)
+2019-04-02 12:40:15,141 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orgc)
+2019-04-02 12:40:15,145 p=10656 u=ubuntu |  ok: [34.205.37.75] => (item=ca1st.orgd)
+2019-04-02 12:40:15,151 p=10656 u=ubuntu |  TASK [Get orderer container list] **********************************************
+2019-04-02 12:40:15,278 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgc)
+2019-04-02 12:40:15,289 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgd)
+2019-04-02 12:40:15,342 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer2nd.orgc)
+2019-04-02 12:40:15,345 p=10656 u=ubuntu |  ok: [3.208.94.71] => (item=orderer2nd.orgd)
+2019-04-02 12:40:15,354 p=10656 u=ubuntu |  TASK [Set zookeeper and kafka container list] **********************************
+2019-04-02 12:40:15,615 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:15,638 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:15,649 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:15,655 p=10656 u=ubuntu |  TASK [Pull certificates from the controller] ***********************************
+2019-04-02 12:40:24,720 p=10656 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:40:24,858 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:40:24,884 p=10656 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:40:24,892 p=10656 u=ubuntu |  TASK [Unpack the certificates] *************************************************
+2019-04-02 12:40:31,804 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:40:31,843 p=10656 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:40:31,963 p=10656 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:40:31,971 p=10656 u=ubuntu |  TASK [Process private key files] ***********************************************
+2019-04-02 12:40:40,673 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={'org': u'orga', 'name': u'ca1st-orga'})
+2019-04-02 12:40:40,731 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={'org': u'orgc', 'name': u'ca1st-orgc'})
+2019-04-02 12:40:40,885 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={'org': u'orgb', 'name': u'ca1st-orgb'})
+2019-04-02 12:40:49,155 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={'org': u'orgd', 'name': u'ca1st-orgd'})
+2019-04-02 12:40:49,163 p=10656 u=ubuntu |  TASK [Get the peer org list] ***************************************************
+2019-04-02 12:40:49,410 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:49,431 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:49,440 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:49,448 p=10656 u=ubuntu |  TASK [Create peer org member string] *******************************************
+2019-04-02 12:40:49,616 p=10656 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:40:49,667 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:40:49,675 p=10656 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:40:49,682 p=10656 u=ubuntu |  TASK [Login to docker repo] ****************************************************
+2019-04-02 12:40:49,730 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:40:49,744 p=10656 u=ubuntu |  skipping: [3.208.94.71]
+2019-04-02 12:40:49,754 p=10656 u=ubuntu |  skipping: [34.205.37.75]
+2019-04-02 12:40:49,762 p=10656 u=ubuntu |  TASK [Pull necessary container images from the docker hub] *********************
+2019-04-02 12:40:58,699 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'fabric-ca:amd64-1.4.0'})
+2019-04-02 12:40:59,010 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'fabric-ca:amd64-1.4.0'})
+2019-04-02 12:40:59,186 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'fabric-ca:amd64-1.4.0'})
+2019-04-02 12:41:28,552 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+2019-04-02 12:41:30,391 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+2019-04-02 12:41:30,688 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+2019-04-02 12:41:35,556 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'fabric-kafka:amd64-0.4.14'})
+2019-04-02 12:41:36,068 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'fabric-kafka:amd64-0.4.14'})
+2019-04-02 12:41:36,252 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'fabric-kafka:amd64-0.4.14'})
+2019-04-02 12:41:42,532 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+2019-04-02 12:41:42,539 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'fabric-orderer:amd64-1.4.0'}) 
+2019-04-02 12:41:42,804 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+2019-04-02 12:41:42,950 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+2019-04-02 12:41:47,630 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+2019-04-02 12:41:48,013 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'fabric-orderer:amd64-1.4.0'})
+2019-04-02 12:41:49,948 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'fabric-orderer:amd64-1.4.0'})
+2019-04-02 12:41:52,867 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+2019-04-02 12:41:54,100 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+2019-04-02 12:41:54,888 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+2019-04-02 12:41:58,092 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+2019-04-02 12:42:00,092 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+2019-04-02 12:42:00,799 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+2019-04-02 12:42:06,572 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+2019-04-02 12:42:06,862 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+2019-04-02 12:42:06,873 p=10656 u=ubuntu |  TASK [Create docker compose files] *********************************************
+2019-04-02 12:42:15,776 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'ca-compose'})
+2019-04-02 12:42:15,864 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'ca-compose'})
+2019-04-02 12:42:16,198 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'ca-compose'})
+2019-04-02 12:42:24,200 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'zookeeper-compose'})
+2019-04-02 12:42:24,296 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'zookeeper-compose'})
+2019-04-02 12:42:24,804 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'zookeeper-compose'})
+2019-04-02 12:42:32,656 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'kafka-compose'})
+2019-04-02 12:42:32,912 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'kafka-compose'})
+2019-04-02 12:42:32,917 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'orderer-compose'}) 
+2019-04-02 12:42:33,416 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'kafka-compose'})
+2019-04-02 12:42:41,100 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'orderer-compose'})
+2019-04-02 12:42:41,473 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:42:42,044 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'orderer-compose'})
+2019-04-02 12:42:49,532 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:42:50,664 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:42:50,673 p=10656 u=ubuntu |  TASK [Start fabric components] *************************************************
+2019-04-02 12:43:00,406 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'zookeeper-compose'})
+2019-04-02 12:43:00,506 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'zookeeper-compose'})
+2019-04-02 12:43:00,635 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'zookeeper-compose'})
+2019-04-02 12:43:09,980 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'kafka-compose'})
+2019-04-02 12:43:10,180 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'kafka-compose'})
+2019-04-02 12:43:10,183 p=10656 u=ubuntu |  skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'orderer-compose'}) 
+2019-04-02 12:43:10,300 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'kafka-compose'})
+2019-04-02 12:43:19,909 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'orderer-compose'})
+2019-04-02 12:43:20,120 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'orderer-compose'})
+2019-04-02 12:43:20,269 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:43:29,917 p=10656 u=ubuntu |  changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'ca-compose'})
+2019-04-02 12:43:30,352 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:43:30,490 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'peer-compose'})
+2019-04-02 12:43:39,841 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'ca-compose'})
+2019-04-02 12:43:40,409 p=10656 u=ubuntu |  changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'ca-compose'})
+2019-04-02 12:43:40,422 p=10656 u=ubuntu |  PLAY [setup test channel and chaincode] ****************************************
+2019-04-02 12:43:40,428 p=10656 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:43:40,460 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/chaincodesetup/tasks/apply.yml for 52.3.221.185
+2019-04-02 12:43:40,469 p=10656 u=ubuntu |  TASK [Reuse common code] *******************************************************
+2019-04-02 12:43:40,507 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185
+2019-04-02 12:43:40,519 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:43:40,561 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:40,570 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:43:44,542 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:44,550 p=10656 u=ubuntu |  TASK [Create component list] ***************************************************
+2019-04-02 12:43:44,605 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:43:44,617 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:43:44,633 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:43:44,641 p=10656 u=ubuntu |  TASK [Sort component list] *****************************************************
+2019-04-02 12:43:44,680 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:44,688 p=10656 u=ubuntu |  TASK [Generate zookeeper node list] ********************************************
+2019-04-02 12:43:44,737 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper1st)
+2019-04-02 12:43:44,742 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper2nd)
+2019-04-02 12:43:44,753 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper3rd)
+2019-04-02 12:43:44,761 p=10656 u=ubuntu |  TASK [Reset the index] *********************************************************
+2019-04-02 12:43:44,797 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:44,804 p=10656 u=ubuntu |  TASK [Generate kafka broker ids] ***********************************************
+2019-04-02 12:43:44,853 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka1st)
+2019-04-02 12:43:44,857 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka2nd)
+2019-04-02 12:43:44,865 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka3rd)
+2019-04-02 12:43:44,874 p=10656 u=ubuntu |  TASK [Get all ca object list] **************************************************
+2019-04-02 12:43:44,924 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orga)
+2019-04-02 12:43:44,926 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgb)
+2019-04-02 12:43:44,976 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgc)
+2019-04-02 12:43:44,984 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgd)
+2019-04-02 12:43:44,993 p=10656 u=ubuntu |  TASK [Get all peer object list] ************************************************
+2019-04-02 12:43:45,090 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+2019-04-02 12:43:45,095 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+2019-04-02 12:43:45,105 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+2019-04-02 12:43:45,114 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+2019-04-02 12:43:45,124 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+2019-04-02 12:43:45,133 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+2019-04-02 12:43:45,142 p=10656 u=ubuntu |  TASK [Get all orderer object list] *********************************************
+2019-04-02 12:43:45,234 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgc)
+2019-04-02 12:43:45,238 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgd)
+2019-04-02 12:43:45,247 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgc)
+2019-04-02 12:43:45,255 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgd)
+2019-04-02 12:43:45,264 p=10656 u=ubuntu |  TASK [Find all anchor peers] ***************************************************
+2019-04-02 12:43:45,352 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,359 p=10656 u=ubuntu |  TASK [Create org anchor peer hash] *********************************************
+2019-04-02 12:43:45,412 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:43:45,418 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:43:45,427 p=10656 u=ubuntu |  TASK [Select a peer to run channel and chaincode command] **********************
+2019-04-02 12:43:45,468 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,476 p=10656 u=ubuntu |  TASK [Select an orderer to run channel and chaincode command] ******************
+2019-04-02 12:43:45,517 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,525 p=10656 u=ubuntu |  TASK [Get ca, peer and orderer orgs] *******************************************
+2019-04-02 12:43:45,566 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,575 p=10656 u=ubuntu |  TASK [Create all orgs list] ****************************************************
+2019-04-02 12:43:45,612 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,620 p=10656 u=ubuntu |  TASK [TLS] *********************************************************************
+2019-04-02 12:43:45,661 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,669 p=10656 u=ubuntu |  TASK [Mutual tls] **************************************************************
+2019-04-02 12:43:45,687 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:43:45,694 p=10656 u=ubuntu |  TASK [Create peerorg rootca list] **********************************************
+2019-04-02 12:43:45,721 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orga) 
+2019-04-02 12:43:45,722 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orgb) 
+2019-04-02 12:43:45,731 p=10656 u=ubuntu |  TASK [Create peers rootca list] ************************************************
+2019-04-02 12:43:45,758 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:43:45,760 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:43:45,766 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:43:45,774 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:43:45,780 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:43:45,786 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:43:45,794 p=10656 u=ubuntu |  TASK [Create orderers rootca list] *********************************************
+2019-04-02 12:43:45,823 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:43:45,824 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:43:45,830 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:43:45,836 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:43:45,845 p=10656 u=ubuntu |  TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+2019-04-02 12:43:45,862 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:43:45,870 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:43:45,955 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:45,963 p=10656 u=ubuntu |  TASK [Create peer org member string] *******************************************
+2019-04-02 12:43:46,044 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:43:46,052 p=10656 u=ubuntu |  TASK [Make sure that working directory exists and clean] ***********************
+2019-04-02 12:43:50,031 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:43:50,039 p=10656 u=ubuntu |  TASK [Move chaincode to the server] ********************************************
+2019-04-02 12:43:58,517 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:43:58,525 p=10656 u=ubuntu |  TASK [Create peer channel command script] **************************************
+2019-04-02 12:44:07,000 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:07,008 p=10656 u=ubuntu |  TASK [Create peer channel command docker compose file] *************************
+2019-04-02 12:44:15,497 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:15,505 p=10656 u=ubuntu |  TASK [Start fabriccli components] **********************************************
+2019-04-02 12:44:19,841 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:19,849 p=10656 u=ubuntu |  TASK [Wait for fabriccli to start] *********************************************
+2019-04-02 12:44:24,141 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:24,149 p=10656 u=ubuntu |  TASK [Wait fabriccli to exit] **************************************************
+2019-04-02 12:44:28,053 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:28,065 p=10656 u=ubuntu |  PLAY [setup composer] **********************************************************
+2019-04-02 12:44:28,071 p=10656 u=ubuntu |  TASK [include_tasks] ***********************************************************
+2019-04-02 12:44:28,108 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/composersetup/tasks/apply.yml for 52.3.221.185
+2019-04-02 12:44:28,116 p=10656 u=ubuntu |  TASK [Reuse common code] *******************************************************
+2019-04-02 12:44:28,154 p=10656 u=ubuntu |  included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185
+2019-04-02 12:44:28,166 p=10656 u=ubuntu |  TASK [Setup and initialize variables] ******************************************
+2019-04-02 12:44:28,208 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:28,216 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:44:32,007 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:32,014 p=10656 u=ubuntu |  TASK [Create component list] ***************************************************
+2019-04-02 12:44:32,116 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+2019-04-02 12:44:32,127 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+2019-04-02 12:44:32,142 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+2019-04-02 12:44:32,152 p=10656 u=ubuntu |  TASK [Sort component list] *****************************************************
+2019-04-02 12:44:32,190 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:32,197 p=10656 u=ubuntu |  TASK [Generate zookeeper node list] ********************************************
+2019-04-02 12:44:32,248 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper1st)
+2019-04-02 12:44:32,252 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper2nd)
+2019-04-02 12:44:32,262 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=zookeeper3rd)
+2019-04-02 12:44:32,271 p=10656 u=ubuntu |  TASK [Reset the index] *********************************************************
+2019-04-02 12:44:32,306 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:32,314 p=10656 u=ubuntu |  TASK [Generate kafka broker ids] ***********************************************
+2019-04-02 12:44:32,364 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka1st)
+2019-04-02 12:44:32,368 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka2nd)
+2019-04-02 12:44:32,419 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=kafka3rd)
+2019-04-02 12:44:32,428 p=10656 u=ubuntu |  TASK [Get all ca object list] **************************************************
+2019-04-02 12:44:32,524 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orga)
+2019-04-02 12:44:32,528 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgb)
+2019-04-02 12:44:32,535 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgc)
+2019-04-02 12:44:32,543 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=ca1st.orgd)
+2019-04-02 12:44:32,552 p=10656 u=ubuntu |  TASK [Get all peer object list] ************************************************
+2019-04-02 12:44:32,649 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+2019-04-02 12:44:32,654 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+2019-04-02 12:44:32,663 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+2019-04-02 12:44:32,673 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+2019-04-02 12:44:32,682 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+2019-04-02 12:44:32,692 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+2019-04-02 12:44:32,700 p=10656 u=ubuntu |  TASK [Get all orderer object list] *********************************************
+2019-04-02 12:44:32,797 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgc)
+2019-04-02 12:44:32,801 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer1st.orgd)
+2019-04-02 12:44:32,809 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgc)
+2019-04-02 12:44:32,817 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orderer2nd.orgd)
+2019-04-02 12:44:32,823 p=10656 u=ubuntu |  TASK [Find all anchor peers] ***************************************************
+2019-04-02 12:44:32,914 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:32,922 p=10656 u=ubuntu |  TASK [Create org anchor peer hash] *********************************************
+2019-04-02 12:44:33,021 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+2019-04-02 12:44:33,027 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+2019-04-02 12:44:33,036 p=10656 u=ubuntu |  TASK [Select a peer to run channel and chaincode command] **********************
+2019-04-02 12:44:33,122 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,130 p=10656 u=ubuntu |  TASK [Select an orderer to run channel and chaincode command] ******************
+2019-04-02 12:44:33,215 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,224 p=10656 u=ubuntu |  TASK [Get ca, peer and orderer orgs] *******************************************
+2019-04-02 12:44:33,266 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,273 p=10656 u=ubuntu |  TASK [Create all orgs list] ****************************************************
+2019-04-02 12:44:33,310 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,319 p=10656 u=ubuntu |  TASK [TLS] *********************************************************************
+2019-04-02 12:44:33,361 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,368 p=10656 u=ubuntu |  TASK [Mutual tls] **************************************************************
+2019-04-02 12:44:33,385 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:44:33,393 p=10656 u=ubuntu |  TASK [Create peerorg rootca list] **********************************************
+2019-04-02 12:44:33,421 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orga) 
+2019-04-02 12:44:33,421 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item=orgb) 
+2019-04-02 12:44:33,430 p=10656 u=ubuntu |  TASK [Create peers rootca list] ************************************************
+2019-04-02 12:44:33,457 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+2019-04-02 12:44:33,460 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+2019-04-02 12:44:33,466 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+2019-04-02 12:44:33,474 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+2019-04-02 12:44:33,480 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+2019-04-02 12:44:33,486 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+2019-04-02 12:44:33,495 p=10656 u=ubuntu |  TASK [Create orderers rootca list] *********************************************
+2019-04-02 12:44:33,526 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+2019-04-02 12:44:33,530 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+2019-04-02 12:44:33,536 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+2019-04-02 12:44:33,542 p=10656 u=ubuntu |  skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+2019-04-02 12:44:33,550 p=10656 u=ubuntu |  TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+2019-04-02 12:44:33,567 p=10656 u=ubuntu |  skipping: [52.3.221.185]
+2019-04-02 12:44:33,575 p=10656 u=ubuntu |  TASK [Setup few variables] *****************************************************
+2019-04-02 12:44:33,661 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,670 p=10656 u=ubuntu |  TASK [Process networkname] *****************************************************
+2019-04-02 12:44:33,753 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:44:33,761 p=10656 u=ubuntu |  TASK [Make sure that working directory exists] *********************************
+2019-04-02 12:44:37,960 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:44:37,968 p=10656 u=ubuntu |  TASK [Pull composer container images from the docker hub] **********************
+2019-04-02 12:44:47,080 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=composer-cli:next)
+2019-04-02 12:44:56,160 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=composer-playground:next)
+2019-04-02 12:44:56,166 p=10656 u=ubuntu |  TASK [Check if PeerAdmin card is already imported] *****************************
+2019-04-02 12:45:00,317 p=10656 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:45:00,325 p=10656 u=ubuntu |  TASK [Create the cards] ********************************************************
+2019-04-02 12:45:05,364 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orga)
+2019-04-02 12:45:10,482 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orgb)
+2019-04-02 12:45:10,488 p=10656 u=ubuntu |  TASK [Import the cards] ********************************************************
+2019-04-02 12:45:16,486 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orga)
+2019-04-02 12:45:22,450 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orgb)
+2019-04-02 12:45:22,456 p=10656 u=ubuntu |  TASK [Runtime install] *********************************************************
+2019-04-02 12:45:28,414 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orga)
+2019-04-02 12:45:34,500 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orgb)
+2019-04-02 12:45:34,506 p=10656 u=ubuntu |  TASK [Request identity] ********************************************************
+2019-04-02 12:45:40,686 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orga)
+2019-04-02 12:45:46,663 p=10656 u=ubuntu |  changed: [52.3.221.185] => (item=orgb)
+2019-04-02 12:45:46,669 p=10656 u=ubuntu |  TASK [Generate all admin options] **********************************************
+2019-04-02 12:45:46,716 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orga)
+2019-04-02 12:45:46,718 p=10656 u=ubuntu |  ok: [52.3.221.185] => (item=orgb)
+2019-04-02 12:45:46,727 p=10656 u=ubuntu |  TASK [Start composer playground] ***********************************************
+2019-04-02 12:45:51,077 p=10656 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:45:51,085 p=10656 u=ubuntu |  PLAY [inform the installer] ****************************************************
+2019-04-02 12:45:51,107 p=10656 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:45:51,590 p=10656 u=ubuntu |  ok: [cloud]
+2019-04-02 12:45:51,614 p=10656 u=ubuntu |  TASK [debug] *******************************************************************
+2019-04-02 12:45:51,660 p=10656 u=ubuntu |  ok: [cloud] => {
+    "msg": "The work load started at 12:39:32, ended at 12:45:51"
+}
+2019-04-02 12:45:51,661 p=10656 u=ubuntu |  PLAY RECAP *********************************************************************
+2019-04-02 12:45:51,661 p=10656 u=ubuntu |  3.208.94.71                : ok=33   changed=8    unreachable=0    failed=0   
+2019-04-02 12:45:51,661 p=10656 u=ubuntu |  34.205.37.75               : ok=32   changed=8    unreachable=0    failed=0   
+2019-04-02 12:45:51,661 p=10656 u=ubuntu |  52.3.221.185               : ok=91   changed=22   unreachable=0    failed=0   
+2019-04-02 12:45:51,662 p=10656 u=ubuntu |  cloud                      : ok=47   changed=19   unreachable=0    failed=0   
+2019-04-02 12:45:52,557 p=13549 u=ubuntu |  PLAY [Get start timestamp] *****************************************************
+2019-04-02 12:45:52,565 p=13549 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:45:53,325 p=13549 u=ubuntu |  ok: [cloud]
+2019-04-02 12:45:53,351 p=13549 u=ubuntu |  TASK [set_fact] ****************************************************************
+2019-04-02 12:45:53,376 p=13549 u=ubuntu |  ok: [cloud]
+2019-04-02 12:45:53,390 p=13549 u=ubuntu |  PLAY [verify fabric network] ***************************************************
+2019-04-02 12:45:53,396 p=13549 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:45:58,360 p=13549 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:46:01,294 p=13549 u=ubuntu |  ok: [34.205.37.75]
+2019-04-02 12:46:01,392 p=13549 u=ubuntu |  ok: [3.208.94.71]
+2019-04-02 12:46:01,433 p=13549 u=ubuntu |  TASK [Wait for containers to be ready] *****************************************
+2019-04-02 12:46:01,469 p=13549 u=ubuntu |  Pausing for 10 seconds
+2019-04-02 12:46:01,469 p=13549 u=ubuntu |  (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2019-04-02 12:46:11,471 p=13549 u=ubuntu |  ok: [52.3.221.185]
+2019-04-02 12:46:11,511 p=13549 u=ubuntu |  TASK [Display docker logs] *****************************************************
+2019-04-02 12:46:15,758 p=13549 u=ubuntu |  changed: [52.3.221.185]
+2019-04-02 12:46:15,963 p=13549 u=ubuntu |  changed: [34.205.37.75]
+2019-04-02 12:46:16,141 p=13549 u=ubuntu |  changed: [3.208.94.71]
+2019-04-02 12:46:16,182 p=13549 u=ubuntu |  TASK [debug] *******************************************************************
+2019-04-02 12:46:16,261 p=13549 u=ubuntu |  ok: [52.3.221.185] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED              STATUS                          PORTS                          NAMES", 
+        "7e2ab57ff58f        hyperledger/composer-playground:next        \"pm2-docker composer…\"   25 seconds ago       Up 24 seconds                   0.0.0.0:8080->8080/tcp         composer-playground", 
+        "8e3290095149        hyperledger/fabric-tools:amd64-1.4.0        \"/etc/hyperledger/al…\"   About a minute ago   Exited (0) About a minute ago                                  fabriccli", 
+        "a30011890302        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago        Up 2 minutes                    7054/tcp                       ca1st-orga", 
+        "5dea70fdf3af        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago        Up 2 minutes                    7051/tcp                       peer1st-orgb", 
+        "14c87e272bc0        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago        Up 2 minutes                    7051/tcp                       peer1st-orga", 
+        "a2e5291dc72e        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago        Up 2 minutes                    4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer1st-orga", 
+        "9dc86ca29da6        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago        Up 2 minutes                    4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer1st-orgb", 
+        "f3e294dadd60        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago        Up 3 minutes                    7050/tcp                       orderer1st-orgd", 
+        "407690da4efe        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago        Up 3 minutes                    7050/tcp                       orderer1st-orgc", 
+        "8521249070bb        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago        Up 3 minutes                    9092-9093/tcp                  kafka1st", 
+        "05bc7805abff        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago        Up 3 minutes                    2181/tcp, 2888/tcp, 3888/tcp   zookeeper1st", 
+        "b952b3337fdb        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago        Up 7 minutes                                                   registrator.kumarnet001", 
+        "add70f81ba8d        skynetservices/skydns:2.5.3a                \"/skydns -machines h…\"   7 minutes ago        Up 7 minutes                                                   skydns.kumarnet001"
+    ]
+}
+2019-04-02 12:46:16,335 p=13549 u=ubuntu |  ok: [3.208.94.71] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                          NAMES", 
+        "373c7b4fd726        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgb", 
+        "d9a4ad357166        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago       Up 2 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer2nd-orga", 
+        "cbf2a4d2553e        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago       Up 2 minutes        7051/tcp                       peer2nd-orga", 
+        "fa2cf1ea4132        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago       Up 2 minutes        7051/tcp                       peer2nd-orgb", 
+        "7f54710f9fa9        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago       Up 2 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer2nd-orgb", 
+        "5fcf6c743407        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago       Up 3 minutes        7050/tcp                       orderer2nd-orgd", 
+        "6b551c29d81e        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago       Up 3 minutes        7050/tcp                       orderer2nd-orgc", 
+        "a936399c57aa        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        9092-9093/tcp                  kafka2nd", 
+        "5b140f7733b9        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        2181/tcp, 2888/tcp, 3888/tcp   zookeeper2nd", 
+        "39b85db8599d        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago       Up 7 minutes                                       registrator.kumarnet002"
+    ]
+}
+2019-04-02 12:46:16,370 p=13549 u=ubuntu |  ok: [34.205.37.75] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                          NAMES", 
+        "b8a07613b3c1        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgc", 
+        "c199d05df33e        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgd", 
+        "d448d2747dab        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   3 minutes ago       Up 3 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer3rd-orgb", 
+        "2a42b664ad73        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        3 minutes ago       Up 3 minutes        7051/tcp                       peer3rd-orga", 
+        "f9adae06433a        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        3 minutes ago       Up 3 minutes        7051/tcp                       peer3rd-orgb", 
+        "3bea1e341d2d        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   3 minutes ago       Up 3 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer3rd-orga", 
+        "4990babb03fc        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        9092-9093/tcp                  kafka3rd", 
+        "d370d61389da        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        2181/tcp, 2888/tcp, 3888/tcp   zookeeper3rd", 
+        "8a4e73f4b5c5        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago       Up 7 minutes                                       registrator.kumarnet003"
+    ]
+}
+2019-04-02 12:46:16,378 p=13549 u=ubuntu |  PLAY [inform the installer] ****************************************************
+2019-04-02 12:46:16,401 p=13549 u=ubuntu |  TASK [Gathering Facts] *********************************************************
+2019-04-02 12:46:16,877 p=13549 u=ubuntu |  ok: [cloud]
+2019-04-02 12:46:16,899 p=13549 u=ubuntu |  TASK [debug] *******************************************************************
+2019-04-02 12:46:16,944 p=13549 u=ubuntu |  ok: [cloud] => {
+    "msg": "The work load started at 12:45:53, ended at 12:46:16"
+}
+2019-04-02 12:46:16,945 p=13549 u=ubuntu |  PLAY RECAP *********************************************************************
+2019-04-02 12:46:16,945 p=13549 u=ubuntu |  3.208.94.71                : ok=3    changed=1    unreachable=0    failed=0   
+2019-04-02 12:46:16,946 p=13549 u=ubuntu |  34.205.37.75               : ok=3    changed=1    unreachable=0    failed=0   
+2019-04-02 12:46:16,946 p=13549 u=ubuntu |  52.3.221.185               : ok=4    changed=1    unreachable=0    failed=0   
+2019-04-02 12:46:16,946 p=13549 u=ubuntu |  cloud                      : ok=4    changed=0    unreachable=0    failed=0   

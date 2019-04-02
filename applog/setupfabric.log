@@ -1,0 +1,817 @@
+
+PLAY [Get start timestamp] *****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [set_fact] ****************************************************************
+ok: [cloud]
+
+PLAY [get fabric crypto tool] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/getbin/tasks/apply.yml for cloud
+
+TASK [Setup variables] *********************************************************
+ok: [cloud]
+
+TASK [Make sure that working directory exists] *********************************
+changed: [cloud]
+
+TASK [stat] ********************************************************************
+ok: [cloud]
+
+TASK [Download fabric binaries] ************************************************
+changed: [cloud]
+
+TASK [Download kubectl] ********************************************************
+changed: [cloud]
+
+PLAY [generate certificates] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/certsetup/tasks/apply.yml for cloud
+
+TASK [Reuse common code] *******************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for cloud
+
+TASK [Setup and initialize variables] ******************************************
+ok: [cloud]
+
+TASK [Make sure that working directory exists] *********************************
+ok: [cloud]
+
+TASK [Create component list] ***************************************************
+ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [cloud] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+
+TASK [Sort component list] *****************************************************
+ok: [cloud]
+
+TASK [Generate zookeeper node list] ********************************************
+ok: [cloud] => (item=zookeeper1st)
+ok: [cloud] => (item=zookeeper2nd)
+ok: [cloud] => (item=zookeeper3rd)
+
+TASK [Reset the index] *********************************************************
+ok: [cloud]
+
+TASK [Generate kafka broker ids] ***********************************************
+ok: [cloud] => (item=kafka1st)
+ok: [cloud] => (item=kafka2nd)
+ok: [cloud] => (item=kafka3rd)
+
+TASK [Get all ca object list] **************************************************
+ok: [cloud] => (item=ca1st.orga)
+ok: [cloud] => (item=ca1st.orgb)
+ok: [cloud] => (item=ca1st.orgc)
+ok: [cloud] => (item=ca1st.orgd)
+
+TASK [Get all peer object list] ************************************************
+ok: [cloud] => (item=anchor@peer1st.orga)
+ok: [cloud] => (item=anchor@peer1st.orgb)
+ok: [cloud] => (item=worker@peer2nd.orga)
+ok: [cloud] => (item=worker@peer2nd.orgb)
+ok: [cloud] => (item=worker@peer3rd.orga)
+ok: [cloud] => (item=worker@peer3rd.orgb)
+
+TASK [Get all orderer object list] *********************************************
+ok: [cloud] => (item=orderer1st.orgc)
+ok: [cloud] => (item=orderer1st.orgd)
+ok: [cloud] => (item=orderer2nd.orgc)
+ok: [cloud] => (item=orderer2nd.orgd)
+
+TASK [Find all anchor peers] ***************************************************
+ok: [cloud]
+
+TASK [Create org anchor peer hash] *********************************************
+ok: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+
+TASK [Select a peer to run channel and chaincode command] **********************
+ok: [cloud]
+
+TASK [Select an orderer to run channel and chaincode command] ******************
+ok: [cloud]
+
+TASK [Get ca, peer and orderer orgs] *******************************************
+ok: [cloud]
+
+TASK [Create all orgs list] ****************************************************
+ok: [cloud]
+
+TASK [TLS] *********************************************************************
+ok: [cloud]
+
+TASK [Mutual tls] **************************************************************
+skipping: [cloud]
+
+TASK [Create peerorg rootca list] **********************************************
+skipping: [cloud] => (item=orga) 
+skipping: [cloud] => (item=orgb) 
+
+TASK [Create peers rootca list] ************************************************
+skipping: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+
+TASK [Create orderers rootca list] *********************************************
+skipping: [cloud] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [cloud] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [cloud] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [cloud] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+
+TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+skipping: [cloud]
+
+TASK [Ensure certificate directory is clean] ***********************************
+ok: [cloud] => (item=absent)
+changed: [cloud] => (item=directory)
+
+TASK [Create crypto-config file] ***********************************************
+changed: [cloud]
+
+TASK [Create the certificate files] ********************************************
+changed: [cloud]
+
+TASK [Combine all orgs into one location] **************************************
+changed: [cloud] => (item=peerOrganizations)
+changed: [cloud] => (item=ordererOrganizations)
+
+TASK [Create connection profiles] **********************************************
+changed: [cloud] => (item=orga)
+changed: [cloud] => (item=orgb)
+changed: [cloud] => (item=orgc)
+changed: [cloud] => (item=orgd)
+
+TASK [Create yaml connection profiles] *****************************************
+changed: [cloud] => (item=orga)
+changed: [cloud] => (item=orgb)
+changed: [cloud] => (item=orgc)
+changed: [cloud] => (item=orgd)
+
+TASK [Create endorsement policy file] ******************************************
+changed: [cloud]
+
+TASK [Rename admin private key] ************************************************
+changed: [cloud] => (item=orga)
+changed: [cloud] => (item=orgb)
+changed: [cloud] => (item=orgc)
+changed: [cloud] => (item=orgd)
+
+TASK [Rename ca private key] ***************************************************
+changed: [cloud] => (item=orga)
+changed: [cloud] => (item=orgb)
+changed: [cloud] => (item=orgc)
+changed: [cloud] => (item=orgd)
+
+TASK [Rename ca tls private key] ***********************************************
+changed: [cloud] => (item=orga)
+changed: [cloud] => (item=orgb)
+changed: [cloud] => (item=orgc)
+changed: [cloud] => (item=orgd)
+
+TASK [Upload bna file] *********************************************************
+changed: [cloud] => (item=/home/ubuntu/nirajkvinit@gmail.com/kumarnet/secrets/networks/carauction-network.bna)
+
+TASK [Create core.yml file for every peer] *************************************
+changed: [cloud] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+changed: [cloud] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+changed: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'})
+changed: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'})
+changed: [cloud] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'})
+changed: [cloud] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'})
+
+TASK [Create config tx file] ***************************************************
+changed: [cloud]
+
+TASK [Create the gensis block and channel transaction] *************************
+changed: [cloud]
+
+TASK [Change file permissions] *************************************************
+changed: [cloud]
+
+TASK [Create ca config file] ***************************************************
+
+TASK [Create a zip file of all certificates] ***********************************
+changed: [cloud]
+
+PLAY [setup fabric network] ****************************************************
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/fabricsetup/tasks/apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Reuse common code] *******************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185, 3.208.94.71, 34.205.37.75
+
+TASK [Setup and initialize variables] ******************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Make sure that working directory exists] *********************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Create component list] ***************************************************
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [3.208.94.71] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+ok: [34.205.37.75] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+
+TASK [Sort component list] *****************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Generate zookeeper node list] ********************************************
+ok: [52.3.221.185] => (item=zookeeper1st)
+ok: [52.3.221.185] => (item=zookeeper2nd)
+ok: [3.208.94.71] => (item=zookeeper1st)
+ok: [3.208.94.71] => (item=zookeeper2nd)
+ok: [52.3.221.185] => (item=zookeeper3rd)
+ok: [34.205.37.75] => (item=zookeeper1st)
+ok: [3.208.94.71] => (item=zookeeper3rd)
+ok: [34.205.37.75] => (item=zookeeper2nd)
+ok: [34.205.37.75] => (item=zookeeper3rd)
+
+TASK [Reset the index] *********************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Generate kafka broker ids] ***********************************************
+ok: [52.3.221.185] => (item=kafka1st)
+ok: [52.3.221.185] => (item=kafka2nd)
+ok: [3.208.94.71] => (item=kafka1st)
+ok: [52.3.221.185] => (item=kafka3rd)
+ok: [3.208.94.71] => (item=kafka2nd)
+ok: [34.205.37.75] => (item=kafka1st)
+ok: [3.208.94.71] => (item=kafka3rd)
+ok: [34.205.37.75] => (item=kafka2nd)
+ok: [34.205.37.75] => (item=kafka3rd)
+
+TASK [Get all ca object list] **************************************************
+ok: [52.3.221.185] => (item=ca1st.orga)
+ok: [52.3.221.185] => (item=ca1st.orgb)
+ok: [3.208.94.71] => (item=ca1st.orga)
+ok: [3.208.94.71] => (item=ca1st.orgb)
+ok: [52.3.221.185] => (item=ca1st.orgc)
+ok: [34.205.37.75] => (item=ca1st.orga)
+ok: [3.208.94.71] => (item=ca1st.orgc)
+ok: [52.3.221.185] => (item=ca1st.orgd)
+ok: [34.205.37.75] => (item=ca1st.orgb)
+ok: [3.208.94.71] => (item=ca1st.orgd)
+ok: [34.205.37.75] => (item=ca1st.orgc)
+ok: [34.205.37.75] => (item=ca1st.orgd)
+
+TASK [Get all peer object list] ************************************************
+ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+ok: [3.208.94.71] => (item=anchor@peer1st.orga)
+ok: [3.208.94.71] => (item=anchor@peer1st.orgb)
+ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+ok: [34.205.37.75] => (item=anchor@peer1st.orga)
+ok: [3.208.94.71] => (item=worker@peer2nd.orga)
+ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+ok: [34.205.37.75] => (item=anchor@peer1st.orgb)
+ok: [3.208.94.71] => (item=worker@peer2nd.orgb)
+ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+ok: [34.205.37.75] => (item=worker@peer2nd.orga)
+ok: [3.208.94.71] => (item=worker@peer3rd.orga)
+ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+ok: [34.205.37.75] => (item=worker@peer2nd.orgb)
+ok: [3.208.94.71] => (item=worker@peer3rd.orgb)
+ok: [34.205.37.75] => (item=worker@peer3rd.orga)
+ok: [34.205.37.75] => (item=worker@peer3rd.orgb)
+
+TASK [Get all orderer object list] *********************************************
+ok: [52.3.221.185] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer1st.orgd)
+ok: [3.208.94.71] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer2nd.orgc)
+ok: [3.208.94.71] => (item=orderer1st.orgd)
+ok: [34.205.37.75] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer2nd.orgd)
+ok: [3.208.94.71] => (item=orderer2nd.orgc)
+ok: [34.205.37.75] => (item=orderer1st.orgd)
+ok: [3.208.94.71] => (item=orderer2nd.orgd)
+ok: [34.205.37.75] => (item=orderer2nd.orgc)
+ok: [34.205.37.75] => (item=orderer2nd.orgd)
+
+TASK [Find all anchor peers] ***************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Create org anchor peer hash] *********************************************
+ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [3.208.94.71] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+ok: [3.208.94.71] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+ok: [34.205.37.75] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [34.205.37.75] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+
+TASK [Select a peer to run channel and chaincode command] **********************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Select an orderer to run channel and chaincode command] ******************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Get ca, peer and orderer orgs] *******************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Create all orgs list] ****************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [TLS] *********************************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Mutual tls] **************************************************************
+skipping: [52.3.221.185]
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+
+TASK [Create peerorg rootca list] **********************************************
+skipping: [52.3.221.185] => (item=orga) 
+skipping: [52.3.221.185] => (item=orgb) 
+skipping: [3.208.94.71] => (item=orga) 
+skipping: [3.208.94.71] => (item=orgb) 
+skipping: [34.205.37.75] => (item=orga) 
+skipping: [34.205.37.75] => (item=orgb) 
+
+TASK [Create peers rootca list] ************************************************
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [3.208.94.71] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+skipping: [34.205.37.75] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+
+TASK [Create orderers rootca list] *********************************************
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [3.208.94.71] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [34.205.37.75] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+
+TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+skipping: [52.3.221.185]
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+
+TASK [Setup and initialize variables] ******************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Make sure remote working directory exists] *******************************
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+changed: [52.3.221.185]
+
+TASK [Get peer container list] *************************************************
+ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+ok: [3.208.94.71] => (item=worker@peer2nd.orga)
+ok: [3.208.94.71] => (item=worker@peer2nd.orgb)
+ok: [34.205.37.75] => (item=worker@peer3rd.orga)
+ok: [34.205.37.75] => (item=worker@peer3rd.orgb)
+
+TASK [Get ca container list] ***************************************************
+ok: [52.3.221.185] => (item=ca1st.orga)
+ok: [3.208.94.71] => (item=ca1st.orgb)
+ok: [34.205.37.75] => (item=ca1st.orgc)
+ok: [34.205.37.75] => (item=ca1st.orgd)
+
+TASK [Get orderer container list] **********************************************
+ok: [52.3.221.185] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer1st.orgd)
+ok: [3.208.94.71] => (item=orderer2nd.orgc)
+ok: [3.208.94.71] => (item=orderer2nd.orgd)
+
+TASK [Set zookeeper and kafka container list] **********************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Pull certificates from the controller] ***********************************
+changed: [34.205.37.75]
+changed: [52.3.221.185]
+changed: [3.208.94.71]
+
+TASK [Unpack the certificates] *************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [Process private key files] ***********************************************
+changed: [52.3.221.185] => (item={'org': u'orga', 'name': u'ca1st-orga'})
+changed: [34.205.37.75] => (item={'org': u'orgc', 'name': u'ca1st-orgc'})
+changed: [3.208.94.71] => (item={'org': u'orgb', 'name': u'ca1st-orgb'})
+changed: [34.205.37.75] => (item={'org': u'orgd', 'name': u'ca1st-orgd'})
+
+TASK [Get the peer org list] ***************************************************
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+ok: [34.205.37.75]
+
+TASK [Create peer org member string] *******************************************
+ok: [34.205.37.75]
+ok: [52.3.221.185]
+ok: [3.208.94.71]
+
+TASK [Login to docker repo] ****************************************************
+skipping: [52.3.221.185]
+skipping: [3.208.94.71]
+skipping: [34.205.37.75]
+
+TASK [Pull necessary container images from the docker hub] *********************
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'fabric-ca:amd64-1.4.0'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'fabric-ca:amd64-1.4.0'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'fabric-ca:amd64-1.4.0'})
+changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'fabric-zookeeper:amd64-0.4.14'})
+changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'fabric-kafka:amd64-0.4.14'})
+changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'fabric-kafka:amd64-0.4.14'})
+changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'fabric-kafka:amd64-0.4.14'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'fabric-orderer:amd64-1.4.0'}) 
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-couchdb:amd64-0.4.14'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'fabric-orderer:amd64-1.4.0'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'fabric-orderer:amd64-1.4.0'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-peer:amd64-1.4.0'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'fabric-ccenv:amd64-1.4.0'})
+changed: [34.205.37.75] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+changed: [52.3.221.185] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+changed: [3.208.94.71] => (item={u'flag': u'tools', u'name': u'fabric-tools:amd64-1.4.0'})
+
+TASK [Create docker compose files] *********************************************
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'ca-compose'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'ca-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'ca-compose'})
+changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'zookeeper-compose'})
+changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'zookeeper-compose'})
+changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'zookeeper-compose'})
+changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'kafka-compose'})
+changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'kafka-compose'})
+skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'orderer-compose'}) 
+changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'kafka-compose'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'orderer-compose'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'peer-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'orderer-compose'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'peer-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'peer-compose'})
+
+TASK [Start fabric components] *************************************************
+changed: [3.208.94.71] => (item={u'flag': [u'zookeeper2nd'], u'name': u'zookeeper-compose'})
+changed: [34.205.37.75] => (item={u'flag': [u'zookeeper3rd'], u'name': u'zookeeper-compose'})
+changed: [52.3.221.185] => (item={u'flag': [u'zookeeper1st'], u'name': u'zookeeper-compose'})
+changed: [3.208.94.71] => (item={u'flag': [u'kafka2nd'], u'name': u'kafka-compose'})
+changed: [34.205.37.75] => (item={u'flag': [u'kafka3rd'], u'name': u'kafka-compose'})
+skipping: [34.205.37.75] => (item={u'flag': [], u'name': u'orderer-compose'}) 
+changed: [52.3.221.185] => (item={u'flag': [u'kafka1st'], u'name': u'kafka-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer2nd-orgc'}, {'org': u'orgd', 'name': u'orderer2nd-orgd'}], u'name': u'orderer-compose'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orgc', 'name': u'orderer1st-orgc'}, {'org': u'orgd', 'name': u'orderer1st-orgd'}], u'name': u'orderer-compose'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}], u'name': u'peer-compose'})
+changed: [34.205.37.75] => (item={u'flag': [{'org': u'orgc', 'name': u'ca1st-orgc'}, {'org': u'orgd', 'name': u'ca1st-orgd'}], u'name': u'ca-compose'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}, {'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}], u'name': u'peer-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}, {'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}], u'name': u'peer-compose'})
+changed: [52.3.221.185] => (item={u'flag': [{'org': u'orga', 'name': u'ca1st-orga'}], u'name': u'ca-compose'})
+changed: [3.208.94.71] => (item={u'flag': [{'org': u'orgb', 'name': u'ca1st-orgb'}], u'name': u'ca-compose'})
+
+PLAY [setup test channel and chaincode] ****************************************
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/chaincodesetup/tasks/apply.yml for 52.3.221.185
+
+TASK [Reuse common code] *******************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185
+
+TASK [Setup and initialize variables] ******************************************
+ok: [52.3.221.185]
+
+TASK [Make sure that working directory exists] *********************************
+ok: [52.3.221.185]
+
+TASK [Create component list] ***************************************************
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+
+TASK [Sort component list] *****************************************************
+ok: [52.3.221.185]
+
+TASK [Generate zookeeper node list] ********************************************
+ok: [52.3.221.185] => (item=zookeeper1st)
+ok: [52.3.221.185] => (item=zookeeper2nd)
+ok: [52.3.221.185] => (item=zookeeper3rd)
+
+TASK [Reset the index] *********************************************************
+ok: [52.3.221.185]
+
+TASK [Generate kafka broker ids] ***********************************************
+ok: [52.3.221.185] => (item=kafka1st)
+ok: [52.3.221.185] => (item=kafka2nd)
+ok: [52.3.221.185] => (item=kafka3rd)
+
+TASK [Get all ca object list] **************************************************
+ok: [52.3.221.185] => (item=ca1st.orga)
+ok: [52.3.221.185] => (item=ca1st.orgb)
+ok: [52.3.221.185] => (item=ca1st.orgc)
+ok: [52.3.221.185] => (item=ca1st.orgd)
+
+TASK [Get all peer object list] ************************************************
+ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+
+TASK [Get all orderer object list] *********************************************
+ok: [52.3.221.185] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer1st.orgd)
+ok: [52.3.221.185] => (item=orderer2nd.orgc)
+ok: [52.3.221.185] => (item=orderer2nd.orgd)
+
+TASK [Find all anchor peers] ***************************************************
+ok: [52.3.221.185]
+
+TASK [Create org anchor peer hash] *********************************************
+ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+
+TASK [Select a peer to run channel and chaincode command] **********************
+ok: [52.3.221.185]
+
+TASK [Select an orderer to run channel and chaincode command] ******************
+ok: [52.3.221.185]
+
+TASK [Get ca, peer and orderer orgs] *******************************************
+ok: [52.3.221.185]
+
+TASK [Create all orgs list] ****************************************************
+ok: [52.3.221.185]
+
+TASK [TLS] *********************************************************************
+ok: [52.3.221.185]
+
+TASK [Mutual tls] **************************************************************
+skipping: [52.3.221.185]
+
+TASK [Create peerorg rootca list] **********************************************
+skipping: [52.3.221.185] => (item=orga) 
+skipping: [52.3.221.185] => (item=orgb) 
+
+TASK [Create peers rootca list] ************************************************
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+
+TASK [Create orderers rootca list] *********************************************
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+
+TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+skipping: [52.3.221.185]
+
+TASK [Setup and initialize variables] ******************************************
+ok: [52.3.221.185]
+
+TASK [Create peer org member string] *******************************************
+ok: [52.3.221.185]
+
+TASK [Make sure that working directory exists and clean] ***********************
+changed: [52.3.221.185]
+
+TASK [Move chaincode to the server] ********************************************
+changed: [52.3.221.185]
+
+TASK [Create peer channel command script] **************************************
+changed: [52.3.221.185]
+
+TASK [Create peer channel command docker compose file] *************************
+changed: [52.3.221.185]
+
+TASK [Start fabriccli components] **********************************************
+changed: [52.3.221.185]
+
+TASK [Wait for fabriccli to start] *********************************************
+changed: [52.3.221.185]
+
+TASK [Wait fabriccli to exit] **************************************************
+changed: [52.3.221.185]
+
+PLAY [setup composer] **********************************************************
+
+TASK [include_tasks] ***********************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/composersetup/tasks/apply.yml for 52.3.221.185
+
+TASK [Reuse common code] *******************************************************
+included: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/common/config_apply.yml for 52.3.221.185
+
+TASK [Setup and initialize variables] ******************************************
+ok: [52.3.221.185]
+
+TASK [Make sure that working directory exists] *********************************
+ok: [52.3.221.185]
+
+TASK [Create component list] ***************************************************
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orga'], u'peers': [u'anchor@peer1st.orga', u'anchor@peer1st.orgb'], u'kafkas': [u'kafka1st'], u'orderers': [u'orderer1st.orgc', u'orderer1st.orgd'], u'zookeepers': [u'zookeeper1st']}, 'key': u'kumarnet001'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgb'], u'peers': [u'worker@peer2nd.orga', u'worker@peer2nd.orgb'], u'kafkas': [u'kafka2nd'], u'orderers': [u'orderer2nd.orgc', u'orderer2nd.orgd'], u'zookeepers': [u'zookeeper2nd']}, 'key': u'kumarnet002'})
+ok: [52.3.221.185] => (item={'value': {u'cas': [u'ca1st.orgc', u'ca1st.orgd'], u'peers': [u'worker@peer3rd.orga', u'worker@peer3rd.orgb'], u'kafkas': [u'kafka3rd'], u'orderers': [], u'zookeepers': [u'zookeeper3rd']}, 'key': u'kumarnet003'})
+
+TASK [Sort component list] *****************************************************
+ok: [52.3.221.185]
+
+TASK [Generate zookeeper node list] ********************************************
+ok: [52.3.221.185] => (item=zookeeper1st)
+ok: [52.3.221.185] => (item=zookeeper2nd)
+ok: [52.3.221.185] => (item=zookeeper3rd)
+
+TASK [Reset the index] *********************************************************
+ok: [52.3.221.185]
+
+TASK [Generate kafka broker ids] ***********************************************
+ok: [52.3.221.185] => (item=kafka1st)
+ok: [52.3.221.185] => (item=kafka2nd)
+ok: [52.3.221.185] => (item=kafka3rd)
+
+TASK [Get all ca object list] **************************************************
+ok: [52.3.221.185] => (item=ca1st.orga)
+ok: [52.3.221.185] => (item=ca1st.orgb)
+ok: [52.3.221.185] => (item=ca1st.orgc)
+ok: [52.3.221.185] => (item=ca1st.orgd)
+
+TASK [Get all peer object list] ************************************************
+ok: [52.3.221.185] => (item=anchor@peer1st.orga)
+ok: [52.3.221.185] => (item=anchor@peer1st.orgb)
+ok: [52.3.221.185] => (item=worker@peer2nd.orga)
+ok: [52.3.221.185] => (item=worker@peer2nd.orgb)
+ok: [52.3.221.185] => (item=worker@peer3rd.orga)
+ok: [52.3.221.185] => (item=worker@peer3rd.orgb)
+
+TASK [Get all orderer object list] *********************************************
+ok: [52.3.221.185] => (item=orderer1st.orgc)
+ok: [52.3.221.185] => (item=orderer1st.orgd)
+ok: [52.3.221.185] => (item=orderer2nd.orgc)
+ok: [52.3.221.185] => (item=orderer2nd.orgd)
+
+TASK [Find all anchor peers] ***************************************************
+ok: [52.3.221.185]
+
+TASK [Create org anchor peer hash] *********************************************
+ok: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'})
+ok: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'})
+
+TASK [Select a peer to run channel and chaincode command] **********************
+ok: [52.3.221.185]
+
+TASK [Select an orderer to run channel and chaincode command] ******************
+ok: [52.3.221.185]
+
+TASK [Get ca, peer and orderer orgs] *******************************************
+ok: [52.3.221.185]
+
+TASK [Create all orgs list] ****************************************************
+ok: [52.3.221.185]
+
+TASK [TLS] *********************************************************************
+ok: [52.3.221.185]
+
+TASK [Mutual tls] **************************************************************
+skipping: [52.3.221.185]
+
+TASK [Create peerorg rootca list] **********************************************
+skipping: [52.3.221.185] => (item=orga) 
+skipping: [52.3.221.185] => (item=orgb) 
+
+TASK [Create peers rootca list] ************************************************
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'anchor', 'name': u'peer1st-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'anchor', 'name': u'peer1st-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer2nd-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer2nd-orgb'}) 
+skipping: [52.3.221.185] => (item={'org': u'orga', 'role': u'worker', 'name': u'peer3rd-orga'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgb', 'role': u'worker', 'name': u'peer3rd-orgb'}) 
+
+TASK [Create orderers rootca list] *********************************************
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer1st-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer1st-orgd'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgc', 'name': u'orderer2nd-orgc'}) 
+skipping: [52.3.221.185] => (item={'org': u'orgd', 'name': u'orderer2nd-orgd'}) 
+
+TASK [Joining the orderer rootca list and peerorg rootca list] *****************
+skipping: [52.3.221.185]
+
+TASK [Setup few variables] *****************************************************
+ok: [52.3.221.185]
+
+TASK [Process networkname] *****************************************************
+ok: [52.3.221.185]
+
+TASK [Make sure that working directory exists] *********************************
+changed: [52.3.221.185]
+
+TASK [Pull composer container images from the docker hub] **********************
+changed: [52.3.221.185] => (item=composer-cli:next)
+changed: [52.3.221.185] => (item=composer-playground:next)
+
+TASK [Check if PeerAdmin card is already imported] *****************************
+ok: [52.3.221.185]
+
+TASK [Create the cards] ********************************************************
+changed: [52.3.221.185] => (item=orga)
+changed: [52.3.221.185] => (item=orgb)
+
+TASK [Import the cards] ********************************************************
+changed: [52.3.221.185] => (item=orga)
+changed: [52.3.221.185] => (item=orgb)
+
+TASK [Runtime install] *********************************************************
+changed: [52.3.221.185] => (item=orga)
+changed: [52.3.221.185] => (item=orgb)
+
+TASK [Request identity] ********************************************************
+changed: [52.3.221.185] => (item=orga)
+changed: [52.3.221.185] => (item=orgb)
+
+TASK [Generate all admin options] **********************************************
+ok: [52.3.221.185] => (item=orga)
+ok: [52.3.221.185] => (item=orgb)
+
+TASK [Start composer playground] ***********************************************
+changed: [52.3.221.185]
+
+PLAY [inform the installer] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [debug] *******************************************************************
+ok: [cloud] => {
+    "msg": "The work load started at 12:39:32, ended at 12:45:51"
+}
+
+PLAY RECAP *********************************************************************
+3.208.94.71                : ok=33   changed=8    unreachable=0    failed=0   
+34.205.37.75               : ok=32   changed=8    unreachable=0    failed=0   
+52.3.221.185               : ok=91   changed=22   unreachable=0    failed=0   
+cloud                      : ok=47   changed=19   unreachable=0    failed=0   
+

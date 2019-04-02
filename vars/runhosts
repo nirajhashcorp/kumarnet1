@@ -1,0 +1,17 @@
+cloud ansible_host=127.0.0.1 ansible_python_interpreter=python
+52.3.221.185 private_ip=172.31.32.74 public_ip=52.3.221.185 inter_name=kumarnet001
+3.208.94.71 private_ip=172.31.32.11 public_ip=3.208.94.71 inter_name=kumarnet002
+34.205.37.75 private_ip=172.31.32.149 public_ip=34.205.37.75 inter_name=kumarnet003
+
+[allnodes]
+52.3.221.185
+3.208.94.71
+34.205.37.75
+
+[etcdnodes]
+52.3.221.185
+3.208.94.71
+34.205.37.75
+
+[builders]
+52.3.221.185

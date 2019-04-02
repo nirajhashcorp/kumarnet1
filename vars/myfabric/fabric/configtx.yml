@@ -1,0 +1,158 @@
+---
+Organizations:
+  - &orga
+    Name: orga
+    ID: orga
+    MSPDir: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orga/msp
+    Policies:
+        Readers:
+            Type: Signature
+            Rule: "OR('orga.admin', 'orga.peer')"
+        Writers:
+            Type: Signature
+            Rule: "OR('orga.admin', 'orga.client')"
+        Admins:
+            Type: Signature
+            Rule: "OR('orga.admin')"
+    AnchorPeers:
+      - Host: peer1st-orga
+        Port: 7051
+
+  - &orgb
+    Name: orgb
+    ID: orgb
+    MSPDir: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgb/msp
+    Policies:
+        Readers:
+            Type: Signature
+            Rule: "OR('orgb.admin', 'orgb.peer')"
+        Writers:
+            Type: Signature
+            Rule: "OR('orgb.admin', 'orgb.client')"
+        Admins:
+            Type: Signature
+            Rule: "OR('orgb.admin')"
+    AnchorPeers:
+      - Host: peer1st-orgb
+        Port: 7051
+
+  - &orgc
+    Name: orgc
+    ID: orgc
+    MSPDir: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgc/msp
+    Policies:
+        Readers:
+            Type: Signature
+            Rule: "OR('orgc.member')"
+        Writers:
+            Type: Signature
+            Rule: "OR('orgc.member')"
+        Admins:
+            Type: Signature
+            Rule: "OR('orgc.admin')"
+
+  - &orgd
+    Name: orgd
+    ID: orgd
+    MSPDir: /home/ubuntu/nirajkvinit@gmail.com/kumarnet/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgd/msp
+    Policies:
+        Readers:
+            Type: Signature
+            Rule: "OR('orgd.member')"
+        Writers:
+            Type: Signature
+            Rule: "OR('orgd.member')"
+        Admins:
+            Type: Signature
+            Rule: "OR('orgd.admin')"
+
+
+Capabilities:
+  Global: &ChannelCapabilities
+    V1_1: true
+
+  Orderer: &OrdererCapabilities
+    V1_1: true
+
+  Application: &ApplicationCapabilities
+    V1_2: true
+Orderer: &OrdererDefaults
+  OrdererType: kafka
+  Addresses:
+    - orderer1st-orgc:7050
+    - orderer1st-orgd:7050
+    - orderer2nd-orgc:7050
+    - orderer2nd-orgd:7050
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 98 MB
+    PreferredMaxBytes: 512 KB
+  Kafka:
+    Brokers:
+      - kafka1st:9092
+      - kafka2nd:9092
+      - kafka3rd:9092
+  Organizations:
+    - *orgc
+    - *orgd
+  Policies:
+      Readers:
+          Type: ImplicitMeta
+          Rule: "ANY Readers"
+      Writers:
+          Type: ImplicitMeta
+          Rule: "ANY Writers"
+      Admins:
+          Type: ImplicitMeta
+          Rule: "MAJORITY Admins"
+      BlockValidation:
+          Type: ImplicitMeta
+          Rule: "ANY Writers"
+  Capabilities:
+    <<: *OrdererCapabilities
+Application: &ApplicationDefaults
+  Organizations:
+    - *orga
+    - *orgb
+  Policies:
+      Readers:
+          Type: ImplicitMeta
+          Rule: "ANY Readers"
+      Writers:
+          Type: ImplicitMeta
+          Rule: "ANY Writers"
+      Admins:
+          Type: ImplicitMeta
+          Rule: "MAJORITY Admins"
+
+Channel: &ChannelDefaults
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+Profiles:
+  OrgChannel:
+    Consortium: FabricConsortium
+    Application:
+      <<: *ApplicationDefaults
+    Capabilities:
+      <<: *ApplicationCapabilities
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+    Consortiums:
+      FabricConsortium:
+        Organizations:
+          - *orga
+          - *orgb

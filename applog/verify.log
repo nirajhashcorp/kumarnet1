@@ -1,0 +1,91 @@
+
+PLAY [Get start timestamp] *****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [set_fact] ****************************************************************
+ok: [cloud]
+
+PLAY [verify fabric network] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [52.3.221.185]
+ok: [34.205.37.75]
+ok: [3.208.94.71]
+
+TASK [Wait for containers to be ready] *****************************************
+Pausing for 10 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [52.3.221.185]
+
+TASK [Display docker logs] *****************************************************
+changed: [52.3.221.185]
+changed: [34.205.37.75]
+changed: [3.208.94.71]
+
+TASK [debug] *******************************************************************
+ok: [52.3.221.185] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED              STATUS                          PORTS                          NAMES", 
+        "7e2ab57ff58f        hyperledger/composer-playground:next        \"pm2-docker composer…\"   25 seconds ago       Up 24 seconds                   0.0.0.0:8080->8080/tcp         composer-playground", 
+        "8e3290095149        hyperledger/fabric-tools:amd64-1.4.0        \"/etc/hyperledger/al…\"   About a minute ago   Exited (0) About a minute ago                                  fabriccli", 
+        "a30011890302        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago        Up 2 minutes                    7054/tcp                       ca1st-orga", 
+        "5dea70fdf3af        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago        Up 2 minutes                    7051/tcp                       peer1st-orgb", 
+        "14c87e272bc0        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago        Up 2 minutes                    7051/tcp                       peer1st-orga", 
+        "a2e5291dc72e        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago        Up 2 minutes                    4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer1st-orga", 
+        "9dc86ca29da6        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago        Up 2 minutes                    4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer1st-orgb", 
+        "f3e294dadd60        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago        Up 3 minutes                    7050/tcp                       orderer1st-orgd", 
+        "407690da4efe        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago        Up 3 minutes                    7050/tcp                       orderer1st-orgc", 
+        "8521249070bb        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago        Up 3 minutes                    9092-9093/tcp                  kafka1st", 
+        "05bc7805abff        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago        Up 3 minutes                    2181/tcp, 2888/tcp, 3888/tcp   zookeeper1st", 
+        "b952b3337fdb        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago        Up 7 minutes                                                   registrator.kumarnet001", 
+        "add70f81ba8d        skynetservices/skydns:2.5.3a                \"/skydns -machines h…\"   7 minutes ago        Up 7 minutes                                                   skydns.kumarnet001"
+    ]
+}
+ok: [3.208.94.71] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                          NAMES", 
+        "373c7b4fd726        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgb", 
+        "d9a4ad357166        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago       Up 2 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer2nd-orga", 
+        "cbf2a4d2553e        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago       Up 2 minutes        7051/tcp                       peer2nd-orga", 
+        "fa2cf1ea4132        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        2 minutes ago       Up 2 minutes        7051/tcp                       peer2nd-orgb", 
+        "7f54710f9fa9        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   2 minutes ago       Up 2 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer2nd-orgb", 
+        "5fcf6c743407        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago       Up 3 minutes        7050/tcp                       orderer2nd-orgd", 
+        "6b551c29d81e        hyperledger/fabric-orderer:amd64-1.4.0      \"orderer\"                3 minutes ago       Up 3 minutes        7050/tcp                       orderer2nd-orgc", 
+        "a936399c57aa        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        9092-9093/tcp                  kafka2nd", 
+        "5b140f7733b9        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        2181/tcp, 2888/tcp, 3888/tcp   zookeeper2nd", 
+        "39b85db8599d        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago       Up 7 minutes                                       registrator.kumarnet002"
+    ]
+}
+ok: [34.205.37.75] => {
+    "dockercontainers.stdout_lines": [
+        "CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                          NAMES", 
+        "b8a07613b3c1        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgc", 
+        "c199d05df33e        hyperledger/fabric-ca:amd64-1.4.0           \"fabric-ca-server st…\"   2 minutes ago       Up 2 minutes        7054/tcp                       ca1st-orgd", 
+        "d448d2747dab        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   3 minutes ago       Up 3 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer3rd-orgb", 
+        "2a42b664ad73        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        3 minutes ago       Up 3 minutes        7051/tcp                       peer3rd-orga", 
+        "f9adae06433a        hyperledger/fabric-peer:amd64-1.4.0         \"peer node start\"        3 minutes ago       Up 3 minutes        7051/tcp                       peer3rd-orgb", 
+        "3bea1e341d2d        hyperledger/fabric-couchdb:amd64-0.4.14     \"tini -- /docker-ent…\"   3 minutes ago       Up 3 minutes        4369/tcp, 5984/tcp, 9100/tcp   couchdb-peer3rd-orga", 
+        "4990babb03fc        hyperledger/fabric-kafka:amd64-0.4.14       \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        9092-9093/tcp                  kafka3rd", 
+        "d370d61389da        hyperledger/fabric-zookeeper:amd64-0.4.14   \"/docker-entrypoint.…\"   3 minutes ago       Up 3 minutes        2181/tcp, 2888/tcp, 3888/tcp   zookeeper3rd", 
+        "8a4e73f4b5c5        email4tong/registrator:v10                  \"/bin/registrator -i…\"   7 minutes ago       Up 7 minutes                                       registrator.kumarnet003"
+    ]
+}
+
+PLAY [inform the installer] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [cloud]
+
+TASK [debug] *******************************************************************
+ok: [cloud] => {
+    "msg": "The work load started at 12:45:53, ended at 12:46:16"
+}
+
+PLAY RECAP *********************************************************************
+3.208.94.71                : ok=3    changed=1    unreachable=0    failed=0   
+34.205.37.75               : ok=3    changed=1    unreachable=0    failed=0   
+52.3.221.185               : ok=4    changed=1    unreachable=0    failed=0   
+cloud                      : ok=4    changed=0    unreachable=0    failed=0   
+
