@@ -1,0 +1,180 @@
+---
+name: "orga-network"
+x-type: "hlfv1"
+version: "1.0.0"
+channels:
+  firstchannel:
+    orderers:
+      - orderer1st-orgc
+      - orderer1st-orgd
+      - orderer2nd-orgc
+      - orderer2nd-orgd
+    peers:
+      peer1st-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer1st-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer2nd-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer2nd-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer3rd-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer3rd-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+organizations:
+  orga:
+    mspid: "orga"
+    # cryptoPath: "orga/users/Admin@orga/msp"
+    adminPrivateKey:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/users/Admin@orga/msp/keystore/738cdac607574fcc298145e6cb5f4323911d993845778b2c1f8e53cfcb7ca768_sk
+    signedCert:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/users/Admin@orga/msp/signcerts/Admin@orga-cert.pem
+    peers:
+      - peer1st-orga
+      - peer2nd-orga
+      - peer3rd-orga
+    certificateAuthorities:
+      - ca1st-orga
+  orgb:
+    mspid: "orgb"
+    # cryptoPath: "orgb/users/Admin@orgb/msp"
+    adminPrivateKey:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/users/Admin@orgb/msp/keystore/384706a9617c37f7916b75989ad444d5fe23875583f6e1cca9b13c70ea675397_sk
+    signedCert:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/users/Admin@orgb/msp/signcerts/Admin@orgb-cert.pem
+    peers:
+      - peer1st-orgb
+      - peer2nd-orgb
+      - peer3rd-orgb
+    certificateAuthorities:
+      - ca1st-orgb
+  orgc:
+    mspid: "orgc"
+    # cryptoPath: "orgc/users/Admin@orgc/msp"
+    adminPrivateKey:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/users/Admin@orgc/msp/keystore/fd2e45fd1afbb9dc34025b808df69a3344cb488dde27b56055f8911b8adb1800_sk
+    signedCert:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/users/Admin@orgc/msp/signcerts/Admin@orgc-cert.pem
+    peers:
+    certificateAuthorities:
+      - ca1st-orgc
+  orgd:
+    mspid: "orgd"
+    # cryptoPath: "orgd/users/Admin@orgd/msp"
+    adminPrivateKey:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgd/users/Admin@orgd/msp/keystore/88b4d706e7d98304e9650f765cc80e614f2f2eb020ea8155afa3fcec90eb86cb_sk
+    signedCert:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgd/users/Admin@orgd/msp/signcerts/Admin@orgd-cert.pem
+    peers:
+    certificateAuthorities:
+      - ca1st-orgd
+orderers:
+  orderer1st-orgc:
+    url: "grpc://orderer1st-orgc:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer1st-orgc"
+      tlsCACerts:
+        path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/ca.crt
+  orderer1st-orgd:
+    url: "grpc://orderer1st-orgd:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer1st-orgd"
+      tlsCACerts:
+        path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgd/orderers/orderer1st-orgd.orgd/tls/ca.crt
+  orderer2nd-orgc:
+    url: "grpc://orderer2nd-orgc:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer2nd-orgc"
+      tlsCACerts:
+        path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/ca.crt
+  orderer2nd-orgd:
+    url: "grpc://orderer2nd-orgd:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer2nd-orgd"
+      tlsCACerts:
+        path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgd/orderers/orderer2nd-orgd.orgd/tls/ca.crt
+peers:
+  peer1st-orga:
+    url: "grpc://peer1st-orga:7051"
+    eventUrl: "grpc://peer1st-orga:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer1st-orga"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/tlsca/tlsca.orga-cert.pem
+  peer2nd-orga:
+    url: "grpc://peer2nd-orga:7051"
+    eventUrl: "grpc://peer2nd-orga:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer2nd-orga"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/tlsca/tlsca.orga-cert.pem
+  peer3rd-orga:
+    url: "grpc://peer3rd-orga:7051"
+    eventUrl: "grpc://peer3rd-orga:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer3rd-orga"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/tlsca/tlsca.orga-cert.pem
+  peer1st-orgb:
+    url: "grpc://peer1st-orgb:7051"
+    eventUrl: "grpc://peer1st-orgb:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer1st-orgb"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
+  peer2nd-orgb:
+    url: "grpc://peer2nd-orgb:7051"
+    eventUrl: "grpc://peer2nd-orgb:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer2nd-orgb"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
+  peer3rd-orgb:
+    url: "grpc://peer3rd-orgb:7051"
+    eventUrl: "grpc://peer3rd-orgb:7053"
+    grpcOptions:
+      ssl-target-name-override: "peer3rd-orgb"
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
+certificateAuthorities:
+  ca1st-orga:
+    url: "http://ca1st-orga:7054"
+    caName: "ca1st-orga"
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/tlsca/tlsca.orga-cert.pem
+  ca1st-orgb:
+    url: "http://ca1st-orgb:7054"
+    caName: "ca1st-orgb"
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
+  ca1st-orgc:
+    url: "http://ca1st-orgc:7054"
+    caName: "ca1st-orgc"
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/tlsca/tlsca.orgc-cert.pem
+  ca1st-orgd:
+    url: "http://ca1st-orgd:7054"
+    caName: "ca1st-orgd"
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgd/tlsca/tlsca.orgd-cert.pem
