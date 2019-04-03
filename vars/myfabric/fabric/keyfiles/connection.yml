@@ -151,28 +151,28 @@ peers:
       path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
 certificateAuthorities:
   ca1st-orga:
-    url: "http://ca1st-orga:7054"
+    url: "http://172.16.11.11:7054"
     caName: "ca1st-orga"
     httpOptions:
       verify: false
     tlsCACerts:
       path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orga/tlsca/tlsca.orga-cert.pem
   ca1st-orgb:
-    url: "http://ca1st-orgb:7054"
+    url: "http://172.16.33.11:7054"
     caName: "ca1st-orgb"
     httpOptions:
       verify: false
     tlsCACerts:
       path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgb/tlsca/tlsca.orgb-cert.pem
   ca1st-orgc:
-    url: "http://ca1st-orgc:7054"
+    url: "http://172.16.10.10:7054"
     caName: "ca1st-orgc"
     httpOptions:
       verify: false
     tlsCACerts:
       path: /home/ubuntu/nirajkvinit@gmail.com/kumarnet1/vars/myfabric/fabric/keyfiles/orgc/tlsca/tlsca.orgc-cert.pem
   ca1st-orgd:
-    url: "http://ca1st-orgd:7054"
+    url: "http://172.16.10.9:7054"
     caName: "ca1st-orgd"
     httpOptions:
       verify: false
